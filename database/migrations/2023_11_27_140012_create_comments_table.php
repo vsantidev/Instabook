@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('comment');
             $table->string('note');
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Book::class);
+            $table->foreignIdFor(User::class)->constrained();
+            $table->foreignIdFor(Book::class)->constrained();
             $table->timestamps();
         });
     }

@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('synopsis');
             $table->string('image');
-            $table->foreignIdFor(Author::class);
-            $table->foreignIdFor(Genre::class);
-            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Author::class)->constrained();
+            $table->foreignIdFor(Genre::class)->constrained();
+            $table->foreignIdFor(User::class)->constrained();
             $table->timestamps();
         });
     }

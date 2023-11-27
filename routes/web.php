@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,9 @@ Route::get('/', function () {
     // redirige sur la page blog si prend dès la racine
     return redirect(route('book.index'));
 });
+
+// route qui mène au controlleur principal qui gère le CRUD
+route::resource('book', BookController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

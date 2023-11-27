@@ -1,11 +1,12 @@
 <?php
 
-use App\Models\Tag;
+use App\Models\Genre;
 use App\Models\User;
+use App\Models\Author;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use PharIo\Manifest\Author;
+
 
 return new class extends Migration
 {

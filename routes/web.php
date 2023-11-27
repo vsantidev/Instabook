@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // redirige sur la page blog si prend dès la racine
+    return redirect(route('book.index'));
 });

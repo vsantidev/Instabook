@@ -76,10 +76,9 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-/*     public function destroy(Book $book)
- */    public function destroy(int $book)
+
+    public function destroy(Book $book)
     {
-        $delete = Book::findOrFail($book);
         $beforeDelete = $delete;
         $delete -> delete();
         return view('bookview.destroy')->with([

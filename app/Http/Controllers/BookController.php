@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Author;
 use App\Models\Book;
 use App\Models\Author;
 use Illuminate\Http\Request;
@@ -17,7 +16,7 @@ class BookController extends Controller
     {
         $array = Book::all();
 
-        return view('mise_en_page.index')->with([
+        return view('bookview.index')->with([
             'array' => $array
         ]);
 
@@ -47,7 +46,7 @@ class BookController extends Controller
     {
    
         $author = Author::findOrFail($book->author_id);
-        return view('mise_en_page.details')->with([
+        return view('bookview.show')->with([
             "book" => $book,
             "author" => $author
         ]);
@@ -60,7 +59,7 @@ class BookController extends Controller
     public function edit(Book $book)
     {
         $author = Author::findOrFail($book ->author_id);
-        return view('mise_en_page.edit')->with([
+        return view('bookview.edit')->with([
             "book" => $book,
             "author" => $author
         ]);
@@ -83,7 +82,7 @@ class BookController extends Controller
         $delete = Book::findOrFail($book);
         $beforeDelete = $delete;
         $delete -> delete();
-        return view('mise_en_page.destroy')->with([
+        return view('bookview.destroy')->with([
             'book' => $beforeDelete
         ]);   
     }

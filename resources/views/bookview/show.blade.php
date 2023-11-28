@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('home.app')
 @section('title')
     <h1>details du livre</h1>
 @endsection

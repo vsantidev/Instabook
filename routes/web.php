@@ -39,3 +39,4 @@ require __DIR__.'/auth.php';
 Route::resource('/book' ,BookController::class);
 Route::resource('/commentaire', CommentController::class);
 Route::resource('/author', AuthorController::class);
+

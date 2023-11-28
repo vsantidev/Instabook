@@ -9,5 +9,8 @@ class Author extends Model
 {
     use HasFactory;
 
+    // permet d'eviter l'envoi de la date et l'heure
+    public $timestamps = false;
+
     protected $fillable = ['lastname', 'firstname' ];
 }

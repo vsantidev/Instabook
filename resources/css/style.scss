@@ -1,3 +1,55 @@
+// -------------> variable css <-------------
+$breakpoint: 799px;
+$nav-height: 70px;
+$link-hover-color: #f8b500;
+$content-width: 1000px;
+
+// ----------------> section Header
+.headerTitle {
+    display: flex;
+    justify-content: center;
+    // box-shadow: 60px +16px whitesmoke;   
+    &__h1 {
+        color: #131e1d;
+    }
+}
+
+.navigation {
+    height: $nav-height;
+}
+
+
+
+.navContainer {
+    max-width: $content-width;
+    float: right;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #131e1d;
+    // border-radius: 16px;
+    height: $nav-height;
+    margin-bottom: 2%;
+    &__link {
+        text-decoration: none;
+        outline: none;
+        color: #ddb067;
+        &--font {
+            font-weight: bold;
+        }
+    }
+}
+
+.brand {
+    position: absolute;
+    padding-left: 20px;
+    float: left;
+    line-height: $nav-height;
+    text-transform: uppercase;
+    font-size: 1.4em;
+}
+
+
 // -----------------> Section : Content
 .contentList{
     display: flex;

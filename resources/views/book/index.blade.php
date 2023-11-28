@@ -1,10 +1,10 @@
-@extends('mise_en_page.app')
+{{-- @extends('layouts.app')
 
 @section('title', 'Instabook pas OUF !')
 
 @section('content')
 <div class="contentList">
-    {{-- <div class="contentList__message"> --}}
+    <div class="contentList__message">
 
 
             <a class="contentList__card">
@@ -19,6 +19,6 @@
             </a>
 
 
-    {{-- </div> --}}
+    </div>
 </div>
-@endsection
+@endsection --}}

@@ -7,27 +7,36 @@
     @vite(['resources/css/style.scss', 'resources/js/app.js'])
 
     <title>Document</title>
-    <link rel="stylesheet" href="../../css/app.css">
+    {{-- <link rel="stylesheet" href="../../css/app.css"> --}}
 </head>
 <body>
     <header>
-        <nav>
-            <div class="linkNav">
-                <a href="">logo</a>
+        <section class="navigation">
+            <div class="brand">
+                <a href="{{route('book.index')}}">Instabook</a>
             </div>
-            <div class="linkNav">
-                <a href="">home</a>
-            </div >
-            <div class="linkNav">
-                <a href="">search</a>
-            </div>
-            <div class="linkNav">
-                <a href="{{route('book.index')}}">ajouter</a>
-            </div>
-            <div class="linkNav">
-                <a href="">connexion</a>
-            </div>
-        </nav>
+
+            
+            <nav class="navContainer">
+                {{-- <div class="nav-mobile">
+                    <a id="nav-toggle" href=""><span></span></a>
+                </div> --}}
+
+                    <a class="navContainer__link navContainer__link--font" href="">home</a>
+
+
+                    <a href="{{route('book.index')}}" class="navContainer__link">search</a>
+
+                    <a href="{{route('book.index')}}" class="navContainer__link">librairie</a>
+
+                    <a href="navContainer__link">ajouter</a>
+
+
+                    <a href="{{route('dashboard')}}">connexion</a>
+
+            </nav>
+        </section>
+
     </header>
 
     <section>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Book;
 use App\Models\Author;
 use Illuminate\Http\Request;
@@ -44,11 +45,13 @@ class BookController extends Controller
    /*  public function show(Book $book) */
     public function show(Book $book)
     {
-        $author = Author::findOrFail($book ->author_id);
+   
+        $author = Author::findOrFail($book->author_id);
         return view('mise_en_page.details')->with([
             "book" => $book,
             "author" => $author
         ]);
+
     }
 
     /**

@@ -1,4 +1,4 @@
-@extends('mise_en_page.app')
+@extends('layouts.app')
 @section('title')
     <h1>details du livre</h1>
 @endsection

@@ -14,8 +14,9 @@ class TagSeeder extends Seeder
     public function run(): void
     {
         foreach ($this->etiquette as $tag) {
-            Tag::factory()->create([
+            Tag::create([
                 'name'=> $tag]);
         }
+        echo array_rand($this->etiquette);
     }
 }

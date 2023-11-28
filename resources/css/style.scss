@@ -1,0 +1,61 @@
+// -----------------> Section : Content
+.contentList{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.contentList__card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ddb067 ;
+    // background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXDfIsL3dNrbcnDzPBDR7AOROtzWRjCtzrYw&usqp=CAU);
+    background-image: url(https://c.wallhere.com/photos/44/16/simple_background-118428.jpg!d);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 85%;
+    color: black;
+    border-radius: 16px;
+    text-align: center;
+    text-decoration: none;
+    width: 35%;
+    // height: 70%;
+    padding: 2% 2%;
+    .contentList__cardOne {
+        height: 85%;
+        &--title{
+            font-weight: 700;
+            font-size: 25px;
+            color: white;
+        }
+        &--content{
+            text-align: justify;
+            height: 35%;
+        }
+    }
+    .contentList__cardTwo {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+        color: #974c18;
+        height: 15%;
+        &--author{
+            font-size: 15px;
+            font-style: italic;
+            text-align: right;
+            // em {
+            //     text-decoration: dashed;
+            // }
+        }
+        &--followers{
+            font-size: 20px;
+            position: relative;
+            bottom: 0;
+        }
+    }
+}

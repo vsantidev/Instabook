@@ -9,10 +9,10 @@
             <div class="image">{{$book->image}}</div>
         </div>
         <div>
-            <div class="titel">{{$book->title}}</div>
+            <div class="title">{{$book->title}}</div>
             <div class="synopsis">{{$book->synopsis}}</div>
             <div class="genre">{{$book->genre}}</div>
-            <div class="author">{{$author->firsname}}</div>
+            <div class="author">{{$author->firstname}} {{$author->lastname}}</div>
         </div>
 
         <div>
@@ -22,12 +22,23 @@
                 <button type="submit">supprimer</button>
             </form>
 
-            <form action="{{route('book.update', $book->id)}}" method="post">
+            <form action="{{route('book.edit', $book->id)}}" method="get">
                 @csrf
-                @method('put')
                 <button type="submit">modifier</button>
             </form>
         </div>
 
+    </div>
+
+    <div class="commentaire">
+        <div class="allCommentaire"></div>
+        <div class="newCommentaire">
+            <form action="{{route('commentaire.create')}}" method="post">
+            @csrf
+            <textarea name="commentaire" id="" cols="30" rows="10"></textarea>
+            <input type="number" name="note" id="" placeholder="votre note sur 5" min="0" max="5">
+            <button type="submit">valider</button>
+            </form>
+        </div>
     </div>
 @endsection

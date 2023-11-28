@@ -22,7 +22,7 @@
                 <a href="">search</a>
             </div>
             <div class="linkNav">
-                <a href="">ajouter</a>
+                <a href="{{route('book.index')}}">ajouter</a>
             </div>
             <div class="linkNav">
                 <a href="">connexion</a>

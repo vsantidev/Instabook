@@ -6,7 +6,7 @@
     @foreach ($array as $key => $book)
         <div class="cardBook">
 
-            <a href="{{route('book.show' , $book->id , $book->author_id)}}">
+            <a href="{{route('book.show' , $book->id)}}">
                 
                 <div class="id">{{$book->id}}</div>
                 <div class="titel">{{$book->title}}</div>

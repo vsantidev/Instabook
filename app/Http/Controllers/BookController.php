@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Author;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    public $array = [
-        ['product_id' => 'titre book 1', 'name' => 'harry potter'],
-        ['product_id' => 'titre book 2', 'name' => 'one piece'],
-    ];
-     
+
     /**
      * Display a listing of the resource.
      */
@@ -45,11 +42,9 @@ class BookController extends Controller
      * Display the specified resource.
      */
    /*  public function show(Book $book) */
-    public function show(int $book)
+    public function show(Book $book)
     {
-        $book = Book::findOrFail($book, $author_id);
-        $author = Author::findOrFail($author_id);
-        /* dd($book); */
+        $author = Author::findOrFail($book ->author_id);
         return view('mise_en_page.details')->with([
             "book" => $book,
             "author" => $author
@@ -61,7 +56,11 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        $author = Author::findOrFail($book ->author_id);
+        return view('mise_en_page.edit')->with([
+            "book" => $book,
+            "author" => $author
+        ]);
     }
 
     /**
@@ -75,8 +74,14 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Book $book)
+/*     public function destroy(Book $book)
+ */    public function destroy(int $book)
     {
-        //
+        $delete = Book::findOrFail($book);
+        $beforeDelete = $delete;
+        $delete -> delete();
+        return view('mise_en_page.destroy')->with([
+            'book' => $beforeDelete
+        ]);   
     }
 }

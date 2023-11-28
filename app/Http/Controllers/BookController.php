@@ -7,12 +7,22 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+    public $array = [
+        ['product_id' => 'titre book 1', 'name' => 'harry potter'],
+        ['product_id' => 'titre book 2', 'name' => 'one piece'],
+    ];
+     
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('book.index');
+        $array = Book::all();
+
+        return view('mise_en_page.index')->with([
+            'array' => $array
+        ]);
+
     }
 
     /**
@@ -34,9 +44,16 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Book $book)
+   /*  public function show(Book $book) */
+    public function show(int $book)
     {
-        //
+        $book = Book::findOrFail($book, $author_id);
+        $author = Author::findOrFail($author_id);
+        /* dd($book); */
+        return view('mise_en_page.details')->with([
+            "book" => $book,
+            "author" => $author
+        ]);
     }
 
     /**

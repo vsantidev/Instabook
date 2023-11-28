@@ -41,7 +41,6 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-   /*  public function show(Book $book) */
     public function show(Book $book)
     {
    
@@ -79,8 +78,8 @@ class BookController extends Controller
 
     public function destroy(Book $book)
     {
-        $beforeDelete = $delete;
-        $delete -> delete();
+        $beforeDelete = $book;
+        $book -> delete();
         return view('bookview.destroy')->with([
             'book' => $beforeDelete
         ]);   

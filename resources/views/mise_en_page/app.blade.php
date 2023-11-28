@@ -15,6 +15,7 @@
             <div class="brand">
                 <a href="{{route('book.index')}}">Instabook</a>
             </div>
+
             
             <nav class="navContainer">
                 {{-- <div class="nav-mobile">

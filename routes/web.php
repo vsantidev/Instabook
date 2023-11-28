@@ -36,4 +36,4 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::resource('/book' ,BookController::class);
+// Route::resource('/book' ,BookController::class);

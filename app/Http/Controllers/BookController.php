@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
@@ -45,15 +46,15 @@ class BookController extends Controller
      * Display the specified resource.
      */
    /*  public function show(Book $book) */
-    public function show(int $book)
+    public function show(Book $book)
     {
-        $book = Book::findOrFail($book, $author_id);
-        $author = Author::findOrFail($author_id);
-        /* dd($book); */
+       
+        $author = Author::findOrFail($book->author_id);
         return view('mise_en_page.details')->with([
             "book" => $book,
             "author" => $author
         ]);
+
     }
 
     /**

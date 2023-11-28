@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Book;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,10 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'comment' => fake()->text(rand(50,100)),
+            'note' => fake()->numberBetween(0,5),
+            'book_id' => fake()->randomElement(Book::all()),
+            'user_id' => fake()->randomElement(User::all()),
         ];
     }
 }

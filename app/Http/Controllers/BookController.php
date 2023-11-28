@@ -22,6 +22,7 @@ class BookController extends Controller
         return view('mise_en_page.index')->with([
             'array' => $array
         ]);
+
     }
 
     /**

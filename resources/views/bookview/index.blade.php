@@ -6,16 +6,8 @@
     <div class="container">
         <div class="filter">
             <div class="genre">
-                <h3>genre</h3>
-
-        
-                
-                
-                
-                
-                <img src="{{ asset('storage/images/'.$book->image) }}" alt="" title="">
-               
-               <a href="">bd</a>
+                <h3>genre</h3>    
+                <a href="">bd</a>
                 <a href="">Manga</a>
                 <a href="">Policier</a>
                 <a href="">Sciences Fiction</a>
@@ -31,8 +23,6 @@
             </div>
             <div class="tag">
                 <h3>Tag</h3>
-
-
                 <a href="">tragedie</a>
                 <a href="">tous public</a>
                 <a href="">enfant</a>
@@ -53,9 +43,8 @@
         <div class="containerBook">
             @foreach ($array as $key => $book)
                 <div class="cardBook">
-    
                     <a href="{{route('book.show' , $book->id)}}">
-                    
+                        <img src="{{ asset('storage/images/'.$book->image) }}" alt="" title="">
                         {{-- <div class="id">{{$book->id}}</div> --}}
                         <br>
                         <div class="titel">{{$book->title}}</div>
@@ -63,7 +52,6 @@
                         
                         <div class="genre">{{$book->genre}}</div>
                     </a>
-    
                 </div>
             @endforeach
         </div>

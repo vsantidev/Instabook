@@ -8,7 +8,14 @@
             <div class="genre">
                 <h3>genre</h3>
 
-                <a href="">bd</a>
+        
+                
+                
+                
+                
+                <img src="{{ asset('storage/images/'.$book->image) }}" alt="" title="">
+               
+               <a href="">bd</a>
                 <a href="">Manga</a>
                 <a href="">Policier</a>
                 <a href="">Sciences Fiction</a>
@@ -24,6 +31,7 @@
             </div>
             <div class="tag">
                 <h3>Tag</h3>
+
 
                 <a href="">tragedie</a>
                 <a href="">tous public</a>
@@ -52,7 +60,7 @@
                         <br>
                         <div class="titel">{{$book->title}}</div>
                         <div class="synopsis">{{$book->synopsis}}</div>
-                        <div class="image">{{$book->image}}</div>
+                        
                         <div class="genre">{{$book->genre}}</div>
                     </a>
     

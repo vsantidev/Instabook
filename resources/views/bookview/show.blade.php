@@ -6,9 +6,10 @@
 @section('content')
     <div class="bookDetails">
         <div class="bookDetailsContainer">
-            <div class="bookImage">
-                <div class="image">{{$book->image}}</div>
-            </div>
+          <div class="image">
+            {{-- <img class="image" src="{{$book->image}}"/> --}}
+            <img src="{{ asset('storage/images/'.$book->image) }}" alt="" title="">   
+          </div>
             <div class="bookData">
                 <div class="title">{{$book->title}}</div>
                 <div class="synopsis">{{$book->synopsis}}</div>
@@ -16,6 +17,7 @@
                 <div class="tag">{{$tag->name}}</div>
                 <div class="author">{{$author->firstname}} {{$author->lastname}}</div>
             </div>
+
         </div>
 
         <div class="boutonCreateur">

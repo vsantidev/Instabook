@@ -36,12 +36,21 @@
     </div>
 
     <div class="commentaire">
-        <div class="allCommentaire"></div>
+        <div class="allCommentaire">
+            <div class="avis">
+                @foreach ($comment as $item)
+                    <p>{{$item->comment}}</p>
+                    <p>note : {{$item->note}}/5</p>
+                @endforeach
+                
+                
+            </div>
+        </div>
         <div class="newCommentaire">
-            <form action="{{route('commentaire.create')}}" method="post">
+            <form action="{{route('comment.store')}}" method="post">
                 @csrf
-                <textarea name="commentaire" id="" cols="30" rows="10"></textarea>
-                <input type="number" name="note" id="" placeholder="votre note sur 5" min="0" max="5">
+                <textarea name="commentaire" cols="30" rows="10"></textarea>
+                <input type="number" name="note"  placeholder="votre note sur 5" min="0" max="5">
                 <button type="submit">valider</button>
             </form>
         </div>

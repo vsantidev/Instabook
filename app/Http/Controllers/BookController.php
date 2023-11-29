@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\Author;
 use App\Models\Genre;
 use App\Models\Tag;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -48,11 +49,22 @@ class BookController extends Controller
         $tag = Tag::findOrFail($book->tag_id);
         $genre = Genre::findOrFail($book->genre_id);
         $author = Author::findOrFail($book->author_id);
+        /* dd($book->id); */
+        $val = $book->id;
+/*         $comment = Book::withWhereHas('comment', fn($query) =>
+            $query->where('comment', 'note' ,$book_id)
+        )->get(); */
+
+        $comment = Book::findOrFail($book->id)->comments;
+
+       /*  dd($comment); */
+
         return view('bookview.show')->with([
             "book" => $book,
             "author" => $author,
             "tag" => $tag,
-            "genre" => $genre
+            "genre" => $genre,
+            "comment" => $comment
         ]);
 
     }

@@ -16,6 +16,7 @@
                 <div class="genre">{{$genre->name}}</div>
                 <div class="tag">{{$tag->name}}</div>
                 <div class="author">{{$author->firstname}} {{$author->lastname}}</div>
+                <div>{{$book->id}}</div>
             </div>
 
         </div>
@@ -33,6 +34,7 @@
             </form>
         </div>
 
+        
     </div>
 
     <div class="commentaire">
@@ -42,8 +44,6 @@
                     <p>{{$item->comment}}</p>
                     <p>note : {{$item->note}}/5</p>
                 @endforeach
-                
-                
             </div>
         </div>
         <div class="newCommentaire">
@@ -51,7 +51,7 @@
                 @csrf
                 <textarea name="commentaire" cols="30" rows="10"></textarea>
                 <input type="number" name="note"  placeholder="votre note sur 5" min="0" max="5">
-                <button type="submit">valider</button>
+                <button type="submit" name="book_id" value="{{$book->id}}">valider</button>
             </form>
         </div>
     </div>

@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\GenreController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
@@ -41,4 +43,5 @@ require __DIR__.'/auth.php';
 Route::resource('/book' ,BookController::class);
 Route::resource('/comment', CommentController::class);
 Route::resource('/author', AuthorController::class);
-
+Route::resource('/tag' ,TagController::class);
+Route::resource('/genre', GenreController::class);

@@ -13,13 +13,26 @@
         <div class="">tag : {{$tag->name}}</div>
     </div>
 
-    <form action="{{route('book.update', $book->id)}}" method="post">
+    <form action="{{route('book.update', $book->id)}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('put')
-        <input type="text" name="lastname" placeholder="nom">
-        <input type="text" name="firstname" placeholder="prenom">
-        <input type="text" name="titre" placeholder="nouveau titre">
-        <textarea name="synopsis" id="" cols="30" rows="10" placeholder="nouveau synopsis"></textarea>
+        <input type="text" name="lastname" placeholder="nom" required>
+        <input type="text" name="firstname" placeholder="prenom" required>
+        <input type="file" name="image" accept="jpg">
+
+        <select name="genre">
+            @foreach ($arrayGenre as $item)
+                <option value="{{$item->id}}">{{$item->name}}</option>
+            @endforeach
+        </select>
+
+        <select name="tag">
+            @foreach ($arrayTag as $item)
+                <option value="{{$item->id}}">{{$item->name}}</option>
+            @endforeach
+        </select>
+        <input type="text" name="title" placeholder="nouveau titre" required>
+        <textarea name="synopsis" id="" cols="30" rows="10" placeholder="nouveau synopsis" required></textarea>
         <button type="submit">valider</button>
     </form>
 @endsection

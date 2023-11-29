@@ -34,18 +34,20 @@ class CommentController extends Controller
             "note" => "required|integer"
         ]);
 
-       /*  dd($request); */
+        
 
         $commentaire = $request ->commentaire;
         $note = $request ->note;
-        
+        $user_id = 3;
         $newCommentaire = [
-            'comment' => $commentaire,
-            'note' => $note
+            'comment' => $request->commentaire,
+            'note' => $request->note,
+            'user_id' => 5,
+            'book_id' => $request->book_id
+            
         ];
-
-
-        dd($note);
+       
+        Comment::create($newCommentaire);
 
         return view('bookview.test')->with([
             "array" => $newCommentaire

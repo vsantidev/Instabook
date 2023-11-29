@@ -49,15 +49,7 @@ class BookController extends Controller
         $tag = Tag::findOrFail($book->tag_id);
         $genre = Genre::findOrFail($book->genre_id);
         $author = Author::findOrFail($book->author_id);
-        /* dd($book->id); */
-        $val = $book->id;
-/*         $comment = Book::withWhereHas('comment', fn($query) =>
-            $query->where('comment', 'note' ,$book_id)
-        )->get(); */
-
         $comment = Book::findOrFail($book->id)->comments;
-
-       /*  dd($comment); */
 
         return view('bookview.show')->with([
             "book" => $book,
@@ -77,11 +69,15 @@ class BookController extends Controller
         $tag = Tag::findOrFail($book->tag_id);
         $genre = Genre::findOrFail($book->genre_id);
         $author = Author::findOrFail($book ->author_id);
+        $arrayGenre = Genre::all();
+        $arrayTag = Tag::all();
         return view('bookview.edit')->with([
             "book" => $book,
             "author" => $author,
             "tag" => $tag,
-            "genre" => $genre
+            "genre" => $genre,
+            "arrayGenre" => $arrayGenre,
+            "arrayTag" => $arrayTag
         ]);
     }
 
@@ -90,7 +86,28 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        /* dd($request); */
+        $request -> validate([
+            'title' => 'required',
+            'synopsis' => 'required',
+            'lastname'=> 'required',
+            'firstname'=> 'required',
+        ]);
+
+/*         $newValue = [
+            'title' => $request ->title,
+            'synopsis' => $request ->synopsis,
+            'image' => $request ->image,
+            'tag_id' => $request -> tag
+        ]; */
+       /*  dd($book->id); */
+
+        $book = Book::findOrFail($book->id);
+        $book ->title = $request ->title;
+        $book ->synopsis = $request ->synopsis;
+        $book ->image = $request ->image;
+        $book ->tag_id = $request -> tag;
+        $book -> save();
     }
 
     /**

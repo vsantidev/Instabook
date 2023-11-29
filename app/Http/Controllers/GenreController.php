@@ -10,7 +10,7 @@ class GenreController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(int $id)
     {
         //
     }
@@ -36,7 +36,11 @@ class GenreController extends Controller
      */
     public function show(Genre $genre)
     {
-        //
+/*         $array = Book::findOrFail($id);
+
+        return view('bookview.indexFilter')->with([
+            "array" => $array
+        ]); */
     }
 
     /**

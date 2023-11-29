@@ -28,7 +28,28 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request -> validate([
+            "commentaire" => "required|string",
+            "note" => "required|integer"
+        ]);
+
+       /*  dd($request); */
+
+        $commentaire = $request ->commentaire;
+        $note = $request ->note;
+        
+        $newCommentaire = [
+            'comment' => $commentaire,
+            'note' => $note
+        ];
+
+
+        dd($note);
+
+        return view('bookview.test')->with([
+            "array" => $newCommentaire
+        ]);
     }
 
     /**

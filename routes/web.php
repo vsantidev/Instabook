@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
@@ -22,13 +23,14 @@ Route::get('/', function () {
 });
 
 // route qui mène au controlleur principal qui gère le CRUD
-route::resource('book', BookController::class);
+/* route::resource('book', BookController::class); */
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -37,6 +39,6 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::resource('/book' ,BookController::class);
-Route::resource('/commentaire', CommentController::class);
+Route::resource('/comment', CommentController::class);
 Route::resource('/author', AuthorController::class);
 

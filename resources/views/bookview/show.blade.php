@@ -5,19 +5,22 @@
 
 @section('content')
     <div class="bookDetails">
-        <div>
+        <div class="bookDetailsContainer">
+          <div class="image">
             {{-- <img class="image" src="{{$book->image}}"/> --}}
-            <img src="{{ asset('storage/images/'.$book->image) }}" alt="" title="">
-            
-        </div>
-        <div>
-            <div class="title">{{$book->title}}</div>
-            <div class="synopsis">{{$book->synopsis}}</div>
-            <div class="genre">{{$book->genre}}</div>
-            <div class="author">{{$author->firstname}} {{$author->lastname}}</div>
+            <img src="{{ asset('storage/images/'.$book->image) }}" alt="" title="">   
+          </div>
+            <div class="bookData">
+                <div class="title">{{$book->title}}</div>
+                <div class="synopsis">{{$book->synopsis}}</div>
+                <div class="genre">{{$genre->name}}</div>
+                <div class="tag">{{$tag->name}}</div>
+                <div class="author">{{$author->firstname}} {{$author->lastname}}</div>
+            </div>
+
         </div>
 
-        <div>
+        <div class="boutonCreateur">
             <form action="{{route('book.destroy', $book->id)}}" method="post">
                 @csrf
                 @method('delete')
@@ -36,10 +39,10 @@
         <div class="allCommentaire"></div>
         <div class="newCommentaire">
             <form action="{{route('commentaire.create')}}" method="post">
-            @csrf
-            <textarea name="commentaire" id="" cols="30" rows="10"></textarea>
-            <input type="number" name="note" id="" placeholder="votre note sur 5" min="0" max="5">
-            <button type="submit">valider</button>
+                @csrf
+                <textarea name="commentaire" id="" cols="30" rows="10"></textarea>
+                <input type="number" name="note" id="" placeholder="votre note sur 5" min="0" max="5">
+                <button type="submit">valider</button>
             </form>
         </div>
     </div>

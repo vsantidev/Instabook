@@ -11,7 +11,8 @@
                 <div class="id">{{$book->id}}</div>
                 <div class="titel">{{$book->title}}</div>
                 <div class="synopsis">{{$book->synopsis}}</div>
-                <div class="image">{{$book->image}}</div>
+                {{-- <div class="image">{{$book->image}}</div> --}}
+                <img src="{{ asset('storage/images/'.$book->image) }}" alt="" title="">
                 <div class="genre">{{$book->genre}}</div>
             </a>
 

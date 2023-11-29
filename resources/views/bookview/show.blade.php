@@ -6,7 +6,9 @@
 @section('content')
     <div class="bookDetails">
         <div>
-            <div class="image">{{$book->image}}</div>
+            {{-- <img class="image" src="{{$book->image}}"/> --}}
+            <img src="{{ asset('storage/images/'.$book->image) }}" alt="" title="">
+            
         </div>
         <div>
             <div class="title">{{$book->title}}</div>

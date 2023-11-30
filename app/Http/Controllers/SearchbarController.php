@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\Author;
 use App\Models\Genre;
 use App\Models\Tag;
+use App\Models\SelectTags;
 
 use Illuminate\Http\Request;
 
@@ -43,27 +44,29 @@ class SearchbarController extends Controller
                 $book = Book::select("books.*", "genres.name as genre_name", "tags.name as tag_name" , "authors.*")
                 ->where("title","%$request->search%")
                 ->leftJoin('genres', 'books.genre_id','genres.id')
-                ->leftJoin('tags', 'books.tag_id', 'tags.id')
+                ->leftJoin('select_tags', 'books.id', 'select_tags.book_id')
+                ->leftJoin('tags', 'select_select_tags.tag_id', 'tags.id')
                 ->leftJoin('authors', 'books.author_id', 'authors.id')
                 ->get();
 
 
             } elseif ($request->option == 'genre') {
-                $genre = Genre::all()->where('name',$request->search);
+                $genre = Genre::all()->where('name',"%$request->search%");
 
 
                     foreach ($genre as $key => $value) {
 
                         $book = Book::select("books.*", "genres.name as genre_name", "tags.name as tag_name" , "authors.*")
-                        ->where("genre_id","%$value->id%")
+                        ->where("genre_id",$value->id)
                         ->leftJoin('genres', 'books.genre_id','genres.id')
-                        ->leftJoin('tags', 'books.tag_id', 'tags.id')
+                        ->leftJoin('select_tags', 'books.id', 'select_tags.book_id')
+                        ->leftJoin('tags', 'select_tags.tag_id', 'tags.id')
                         ->leftJoin('authors', 'books.author_id', 'authors.id')
                         ->get();
                     }
 
             } elseif ($request->option == 'auteurs') {
-                $author = Author::where('lastname',$request->search)
+                $author = Author::where('lastname',"%$request->search%")
                     ->orWhere('firstname', $request->option)
                     ->get();
 
@@ -72,7 +75,8 @@ class SearchbarController extends Controller
                         $book = Book::select("books.*", "genres.name as genre_name", "tags.name as tag_name" , "authors.*")
                         ->where("author_id",$value->id)
                         ->leftJoin('genres', 'books.genre_id','genres.id')
-                        ->leftJoin('tags', 'books.tag_id', 'tags.id')
+                        ->leftJoin('select_tags', 'books.id', 'select_tags.book_id')
+                        ->leftJoin('tags', 'select_tags.tag_id', 'tags.id')
                         ->leftJoin('authors', 'books.author_id', 'authors.id')
                         ->get();
                     }
@@ -83,7 +87,7 @@ class SearchbarController extends Controller
 
                 if($genre->count() == 0){
                     
-                    $author = Author::where('lastname',$request->search)
+                    $author = Author::where('lastname',"%$request->search%")
                         ->orWhere('firstname', $request->option)
                         ->get();
 
@@ -92,17 +96,19 @@ class SearchbarController extends Controller
                             $book = Book::select("books.*", "genres.name as genre_name", "tags.name as tag_name" , "authors.*")
                             ->where("author_id",$value->id)
                             ->leftJoin('genres', 'books.genre_id','genres.id')
-                            ->leftJoin('tags', 'books.tag_id', 'tags.id')
+                            ->leftJoin('select_tags', 'books.id', 'select_tags.book_id')
+                            ->leftJoin('tags', 'select_tags.tag_id', 'tags.id')
                             ->leftJoin('authors', 'books.author_id', 'authors.id')
                             ->get();
                         }
 
                     if ($author->count() == 0 ) {
 
-                        $book = Book::select("books.*", "genres.name as genre_name"/* , "tags.name as tag_name" */ , "authors.*")
+                        $book = Book::select("books.*", "genres.name as genre_name", "tags.name as tag_name" , "authors.*")
                         ->where("title",$request->search)
                         ->leftJoin('genres', 'books.genre_id','genres.id')
-                        /* ->leftJoin('tags', 'books.tag_id', 'tags.id') */
+                        ->leftJoin('select_tags', 'books.id', 'select_tags.book_id')
+                        ->leftJoin('tags', 'select_tags.tag_id', 'tags.id')
                         ->leftJoin('authors', 'books.author_id', 'authors.id')
                         ->get();
                     
@@ -111,10 +117,11 @@ class SearchbarController extends Controller
 
                     foreach ($genre as $key => $value) {
 
-                        $book = Book::select("books.*", "genres.name as genre_name"/* , "tags.name as tag_name" */ , "authors.*")
+                        $book = Book::select("books.*", "genres.name as genre_name", "tags.name as tag_name" , "authors.*")
                         ->where("genre_id",$value->id)
                         ->leftJoin('genres', 'books.genre_id','genres.id')
-                        /* ->leftJoin('tags', 'books.tag_id', 'tags.id') */
+                        ->leftJoin('select_tags', 'books.id', 'select_tags.book_id')
+                        ->leftJoin('tags', 'select_tags.tag_id', 'tags.id')
                         ->leftJoin('authors', 'books.author_id', 'authors.id')
                         ->get();
                     }
@@ -122,7 +129,7 @@ class SearchbarController extends Controller
                 }  
         }
         /* dd($book); */
-        return view('bookview.test')->with([
+        return view('bookview.showFilter')->with([
             "array" => $book
         ]);
 

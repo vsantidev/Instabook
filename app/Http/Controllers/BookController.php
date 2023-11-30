@@ -86,21 +86,12 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        /* dd($request); */
         $request -> validate([
             'title' => 'required',
             'synopsis' => 'required',
             'lastname'=> 'required',
             'firstname'=> 'required',
         ]);
-
-/*         $newValue = [
-            'title' => $request ->title,
-            'synopsis' => $request ->synopsis,
-            'image' => $request ->image,
-            'tag_id' => $request -> tag
-        ]; */
-       /*  dd($book->id); */
 
         $book = Book::findOrFail($book->id);
         $book ->title = $request ->title;

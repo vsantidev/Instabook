@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tag;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -36,7 +37,11 @@ class TagController extends Controller
      */
     public function show(Tag $tag)
     {
-        //
+        $array = Book::all()->where('tag_id', $tag->id);
+        
+        return view('bookview.showFilter')->with([
+            "array" => $array
+        ]);
     }
 
     /**

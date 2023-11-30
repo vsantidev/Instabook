@@ -7,36 +7,36 @@
         <div class="filter">
             <div class="genre">
                 <h3>genre</h3>    
-                <a href="{{route('genre.index', 1)}}">bd</a>
-                <a href="{{route('genre.index', 2)}}">Manga</a>
-                <a href="{{route('genre.index', 3)}}">Policier</a>
-                <a href="{{route('genre.index', 4)}}">Sciences Fiction</a>
-                <a href="{{route('genre.index', 5)}}">Narratif</a>
-                <a href="{{route('genre.index', 6)}}">Poetique</a>
-                <a href="{{route('genre.index', 7)}}">Theatral</a>
-                <a href="{{route('genre.index', 8)}}">Fantastique</a>
-                <a href="{{route('genre.index', 9)}}">Thriller</a>
-                <a href="{{route('genre.index', 10)}}">Jeunesse</a>
-                <a href="{{route('genre.index', 11)}}">Biographies</a>
-                <a href="{{route('genre.index', 12)}}">Littérature</a>
-                <a href="{{route('genre.index', 13)}}">Romance</a>
+                <a href="{{route('genre.show', 1)}}">bd</a>
+                <a href="{{route('genre.show', 2)}}">Manga</a>
+                <a href="{{route('genre.show', 3)}}">Policier</a>
+                <a href="{{route('genre.show', 4)}}">Sciences Fiction</a>
+                <a href="{{route('genre.show', 5)}}">Narratif</a>
+                <a href="{{route('genre.show', 6)}}">Poetique</a>
+                <a href="{{route('genre.show', 7)}}">Theatral</a>
+                <a href="{{route('genre.show', 8)}}">Fantastique</a>
+                <a href="{{route('genre.show', 9)}}">Thriller</a>
+                <a href="{{route('genre.show', 10)}}">Jeunesse</a>
+                <a href="{{route('genre.show', 11)}}">Biographies</a>
+                <a href="{{route('genre.show', 12)}}">Littérature</a>
+                <a href="{{route('genre.show', 13)}}">Romance</a>
             </div>
             <div class="tag">
                 <h3>Tag</h3>
-                <a href="">tragedie</a>
-                <a href="">tous public</a>
-                <a href="">enfant</a>
-                <a href="">rigolo</a>
-                <a href="">burlesque</a>
-                <a href="">etudes</a>
-                <a href="">etonnant</a>
-                <a href="">suspense</a>
-                <a href="">amour</a>
-                <a href="">noel</a>
-                <a href="">magique</a>
-                <a href="">enigmatique</a>
-                <a href="">decouverte</a>
-                <a href="">nature</a>
+                <a href="{{route('tag.show', 1)}}">tragedie</a>
+                <a href="{{route('tag.show', 2)}}">tous public</a>
+                <a href="{{route('tag.show', 3)}}">enfant</a>
+                <a href="{{route('tag.show', 4)}}">rigolo</a>
+                <a href="{{route('tag.show', 5)}}">burlesque</a>
+                <a href="{{route('tag.show', 6)}}">etudes</a>
+                <a href="{{route('tag.show', 7)}}">etonnant</a>
+                <a href="{{route('tag.show', 8)}}">suspense</a>
+                <a href="{{route('tag.show', 9)}}">amour</a>
+                <a href="{{route('tag.show', 10)}}">noel</a>
+                <a href="{{route('tag.show', 11)}}">magique</a>
+                <a href="{{route('tag.show', 12)}}">enigmatique</a>
+                <a href="{{route('tag.show', 13)}}">decouverte</a>
+                <a href="{{route('tag.show', 14)}}">nature</a>
             </div>
         </div>
     

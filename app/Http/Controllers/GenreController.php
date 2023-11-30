@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
@@ -10,7 +11,7 @@ class GenreController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(int $id)
+    public function index()
     {
         //
     }
@@ -36,11 +37,11 @@ class GenreController extends Controller
      */
     public function show(Genre $genre)
     {
-/*         $array = Book::findOrFail($id);
-
-        return view('bookview.indexFilter')->with([
+        $array = Book::all()->where('genre_id', $genre->id);
+        
+        return view('bookview.showFilter')->with([
             "array" => $array
-        ]); */
+        ]);
     }
 
     /**

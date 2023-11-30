@@ -5,37 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/style.scss', 'resources/js/app.js'])
-
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/f9d009cb2a.js" crossorigin="anonymous"></script>
+    <title>Instabook</title>
     {{-- <link rel="stylesheet" href="../../css/app.css"> --}}
 </head>
 <body>
     <header>
-        <section class="navigation">
-            <div class="brand">
-                <a href="{{route('book.index')}}">Instabook</a>
+        <nav class="nav">
+            <a class="nav__brand" href="{{route('book.index')}}">Instabook</a>
+            <div class="menu-container">
+                <ul class="mega-menu">
+                    <li class="dropdown">
+                        <div>
+                            <a href="{{route('book.index')}}">
+                            
+                            <span>Librairie</span> </a>
+                            <span><i class="fa-solid fa-caret-down"></i></span>
+                        </div>
+                        <ul class="menu">
+                            <li class="menu__link">
+                                <a href="">BD</a>
+                            </li>
+                            <li class="menu__link">
+                                <a href="">Biographies</a>
+                            </li>
+                            <li class="menu__link">
+                                <a href="">Fantastique</a>
+                            </li>
+                            <li class="menu__link">
+                                <a href="">Jeunesse</a>
+                            </li>
+                            <li class="menu__link">
+                                <a href="">Littérature</a>
+                            </li>
+                            <li class="menu__link">
+                                <a href="">Manga</a>
+                            </li>
+                            <li class="menu__link">
+                                <a href="">Narratif</a>
+                            </li>
+                            <li class="menu__link">
+                                <a href="">Poétique</a>
+                            </li>
+                            <li class="menu__link">
+                                <a href="">Policier</a>
+                            </li>
+                            <li class="menu__link">
+                                <a href="">Romance</a>
+                            </li>
+                            <li class="menu__link">
+                                <a href="">Sciences Fiction</a>
+                            </li>
+                            <li class="menu__link">
+                                <a href="" >Théâtral</a>
+                            </li>
+                            <li class="menu__link">
+                                <a href="" >Thriller</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu__link">
+                        <a href="#recherche">
+                            Recherche
+                        </a>
+                    </li>
+
+                    <li class="menu__link"> 
+                        <a href="{{route('dashboard')}}">
+                            À propos
+                        </a>
+                    </li>
+                    <li class="menu__link"> 
+                        <a href="{{route('dashboard')}}">
+                            Connexion
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="buttons">
+                <button class="btn btn__log">Connexion</button>
+                <button class="btn btn__log btn__log--color">Inscription</button>
+                <button class="btn btn__menu">
+                    <span><i class="fa-solid fa-bars"></i></span>
+                </button>
             </div>
 
-            
-            <nav class="navContainer">
-                {{-- <div class="nav-mobile">
-                    <a id="nav-toggle" href=""><span></span></a>
-                </div> --}}
-
-                    <a class="navContainer__link navContainer__link--font" href="">home</a>
-
-
-                    <a href="{{route('book.index')}}" class="navContainer__link">search</a>
-
-                    <a href="{{route('book.index')}}" class="navContainer__link">librairie</a>
-
-                    <a href="navContainer__link">ajouter</a>
-
-
-                    <a href="{{route('dashboard')}}">connexion</a>
-
-            </nav>
-        </section>
+        </nav>
 
     </header>
 

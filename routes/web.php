@@ -28,7 +28,7 @@ Route::get('/', function () {
 /* route::resource('book', BookController::class); */
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect(route('book.index'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

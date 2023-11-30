@@ -52,6 +52,7 @@
                         
                         <div class="genre">{{$book->genre}}</div>
                     </a>
+
                 </div>
             @endforeach
         </div>

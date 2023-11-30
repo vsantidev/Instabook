@@ -9,7 +9,7 @@ class Book extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'synopsis','image'];
+    protected $fillable = ['title', 'synopsis','image', 'author_id', 'user_id', 'annee', 'genre_id'];
 
 
     public function comments(){

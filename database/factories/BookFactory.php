@@ -23,9 +23,9 @@ class BookFactory extends Factory
         return [
             'title' => fake()->text(20),
             'synopsis' => fake()->text(90),
+            'annee' => fake()->numberBetween(1800, 2023),
             'author_id' => fake()->randomElement(Author::all()),
             'genre_id' => fake()->randomElement(Genre::all()),
-            'tag_id' => fake()->randomElement(Tag::all()),
             'user_id' => fake()->randomElement(User::all()),
             
         ];

@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('genres', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+        Schema::create('select_tags', function (Blueprint $table) {
+
+            $table->foreignIdFor(Book::class)->constrained();
+            $table->foreignIdFor(Tag::class)->constrained();
+            $table->primary(['book_id','tag_id']);
         });
     }
 
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('genres');
+        Schema::dropIfExists('select_tags');
     }
 };

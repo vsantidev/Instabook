@@ -1,7 +1,7 @@
 @extends('home.app')
-@section('title')
+{{-- @section('title')
     <h1>index</h1>
-@endsection
+@endsection --}}
 @section('content')
     <div class="container">
         <div class="filter">
@@ -44,7 +44,7 @@
             @foreach ($array as $key => $book)
                 <div class="cardBook">
                     <a href="{{route('book.show' , $book->id)}}">
-                        <img src="{{ asset('storage/images/'.$book->image) }}" alt="" title="">
+                        <img src="{{ asset('storage/image/'.$book->image) }}" alt="" title="">
                         {{-- <div class="id">{{$book->id}}</div> --}}
                         <br>
                         <div class="titel">{{$book->title}}</div>

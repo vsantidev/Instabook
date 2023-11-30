@@ -11,7 +11,7 @@ use function PHPSTORM_META\type;
 class GenreSeeder extends Seeder
 {
 
-    private $categories = ['BD', 'Manga', 'Policier', 'Sciences Fiction', 'Narratif', 'Poetique', 'Theatral', 'Fantastique', 'Thriller', 'Jeunesse', 'Biographies', 'Littérature', 'Romance'];
+    private $categories = ['bd', 'manga', 'policier', 'sciences fiction', 'narratif', 'poetique', 'theatral', 'fantastique', 'thriller', 'jeunesse', 'biographies', 'littérature', 'romance'];
     
     public function run(): void
     {

@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class SelectTags extends Model
 {
     use HasFactory;
-    protected $fillable = ['comment', 'note'];
+
+        // permet d'eviter l'envoi de la date et l'heure
+        public $timestamps = false;
 }

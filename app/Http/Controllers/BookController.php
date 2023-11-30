@@ -94,15 +94,17 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        $tag = Tag::findOrFail($book->tag_id);
+       /*  dd($book); */
+/*         $tag = Tag::findOrFail($book->tag_id);
+         */
         $genre = Genre::findOrFail($book->genre_id);
         $author = Author::findOrFail($book->author_id);
         $comment = Book::findOrFail($book->id)->comments;
-
+        
         return view('bookview.show')->with([
             "book" => $book,
             "author" => $author,
-            "tag" => $tag,
+            /* "tag" => $tag, */
             "genre" => $genre,
             "comment" => $comment
         ]);

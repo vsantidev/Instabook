@@ -9,9 +9,9 @@
 <body>
     <h1>test</h1>
     @foreach ($array as $item)
-        {{$item ->title}}
+        {{$item }}
        
     @endforeach
-    {{$array}}
+   {{--  {{$array}} --}}
 </body>
 </html>

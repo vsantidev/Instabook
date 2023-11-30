@@ -65,7 +65,7 @@
                         </ul>
                     </li>
                     <li class="menu__link">
-                        <a href="#recherche">
+                        <a href="{{route('search.index')}}">
                             Recherche
                         </a>
                     </li>

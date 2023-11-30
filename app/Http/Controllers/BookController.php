@@ -7,7 +7,10 @@ use App\Models\Author;
 use App\Models\Genre;
 use App\Models\Tag;
 use App\Models\Comment;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
@@ -30,15 +33,60 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $arrayGenre = Genre::all()->sortBy('name');
+        $authors = Author::all()->sortBy('name');
+        return view('bookview.create', compact('arrayGenre', 'authors'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    {  
+
+        $request->validate([
+            'title' => 'required | max:255 | min:5',
+            'synopsis' => 'required',
+            'author' => 'required',
+            'genre' => 'required',
+            'annee' => 'required | integer',
+            'image'=> 'required | image | mimes:jpg,png,jpeg,gif,svg|max:3000'
+        ]);
+         
+        $filename = time() . '.' . $request->file('image')->extension();
+        
+        $request->file('image')->storeAs(
+            'image',
+            $filename,
+            'public'
+        );
+
+        $user_id = Auth::user()->id;
+        if ($request->author_id == 0) 
+        {
+            $author = Author::firstOrCreate([
+                'firstname'=> $request->firstname,
+                'lastname' => $request->lastname
+                ]);
+            $author_id = $author->id;
+        } else {
+            $author_id = $request->author_id ;
+        };
+
+
+        Book::create([
+            'title' => $request->title,
+            'synopsis' => $request->synopsis,
+            'author_id' => $author_id,
+            'genre_id' => $request->genre,
+            'annee' => $request->annee,
+            'user_id' => $user_id,
+            'image' => $filename
+        ]);
+
+
+        return redirect(route('book.index'))->with('Succès!', 'Votre livre a bien été rajouté!');
+
     }
 
     /**

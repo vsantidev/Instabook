@@ -76,14 +76,42 @@
                         </a>
                     </li>
                     <li class="menu__link"> 
-                        <a href="{{route('dashboard')}}">
-                            Connexion
-                        </a>
+                        {{-- <a href="{{route('profile')}}">
+                            Mon profil
+                        </a> --}}
+                    </li>
+                    <li class="dropdown">
+                        <div>
+                            
+                            <span>Mon compte</span> </a>
+                            <span><i class="fa-solid fa-caret-down"></i></span>
+                        </div>
+                        <ul class="menu">
+                            <li class="menu__link">
+                                <a href="{{route('profile.edit')}}">
+                                    Profil
+                                </a>
+                            </li>
+                            <li class="menu__link">
+                                <a href="{{route('book.create')}}">Création de livre</a>
+                            </li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+    
+                                <x-dropdown-link :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </form>
+                        </ul>
                     </li>
                 </ul>
             </div>
             <div class="buttons">
-                <button class="btn btn__log">Connexion</button>
+                <button class="btn btn__log"><a href="{{route('dashboard')}}">
+                    Connexion
+                </a></button>
                 <button class="btn btn__log btn__log--color">Inscription</button>
                 <button class="btn btn__menu">
                     <span><i class="fa-solid fa-bars"></i></span>

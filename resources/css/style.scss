@@ -14,16 +14,19 @@ $content-heigth: 100vh;
 
 body {
     font-family: 'Raleway', sans-serif;
+    color: #c70039;
     background-image: url('../../storage/app/public/images/livre-ouvert.jpg');
     background-image: cover;
+    // background-repeat: no-repeat;
     min-height: 100vh;
+
 }
 
 // ----------------> section Header
-header {
- width: $content-width;
- height: $content-heigth;
-}
+// header {
+//  width: $content-width;
+//  height: $content-heigth;
+// }
 
 .nav {
     width: $content-width;
@@ -225,6 +228,9 @@ header {
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
+    position: absolute;
+    top: 30%;
+    z-index: 0;
     
 }
 
@@ -232,7 +238,6 @@ header {
     display: flex;
     flex-direction: column;
     background-color: #ddb067 ;
-    // background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXDfIsL3dNrbcnDzPBDR7AOROtzWRjCtzrYw&usqp=CAU);
     background-image: url(https://c.wallhere.com/photos/44/16/simple_background-118428.jpg!d);
     background-repeat: no-repeat;
     background-position: top;
@@ -267,9 +272,7 @@ header {
             font-size: 15px;
             font-style: italic;
             text-align: right;
-            // em {
-            //     text-decoration: dashed;
-            // }
+
         }
         &--followers{
             font-size: 20px;
@@ -277,7 +280,7 @@ header {
             bottom: 0;
         }
     }
-}
+    }
 
 /* detail */
 .bookDetailsContainer{

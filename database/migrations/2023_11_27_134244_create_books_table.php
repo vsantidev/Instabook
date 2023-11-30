@@ -20,8 +20,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('synopsis');
+            $table->integer('annee');
             $table->string('image')->nullable();
-            $table->foreignIdFor(Tag::class)->constrained;
             $table->foreignIdFor(Author::class)->constrained();
             $table->foreignIdFor(Genre::class)->constrained();
             $table->foreignIdFor(User::class)->constrained();

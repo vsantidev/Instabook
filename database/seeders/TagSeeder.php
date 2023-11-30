@@ -9,7 +9,7 @@ use Illuminate\Database\Seeder;
 class TagSeeder extends Seeder
 {
     
-    private $etiquette = ['Tragédie', 'Tous public', 'Enfant', 'Rigolo', 'Burlesque', 'Etudes', 'Etonnant', 'Suspense', 'Amour', 'Noel', 'Magique', 'Enigmatique', 'Decouverte', 'nature'];
+    private $etiquette = ['tragedie', 'tous public', 'enfant', 'rigolo', 'burlesque', 'etudes', 'etonnant', 'suspense', 'amour', 'noel', 'magique', 'enigmatique', 'decouverte', 'nature', 'enquete'];
 
     public function run(): void
     {

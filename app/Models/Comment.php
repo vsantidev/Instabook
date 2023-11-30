@@ -9,7 +9,7 @@ class Comment extends Model
 {
     use HasFactory;
 
-    protected $fillable = [ 'comment', 'note', 'user_id' ];
+    protected $fillable = [ 'comment', 'note', 'user_id', 'book_id' ];
 
     //premet d'eviter l'envoi de la date et l'heure
     public $timestamps = false;

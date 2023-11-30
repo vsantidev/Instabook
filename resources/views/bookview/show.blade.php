@@ -14,7 +14,7 @@
                 <div class="title">{{$book->title}}</div>
                 <div class="synopsis">{{$book->synopsis}}</div>
                 <div class="genre">{{$genre->name}}</div>
-                <div class="tag">{{$tag->name}}</div>
+                {{-- <div class="tag">{{$tag->name}}</div> --}}
                 <div class="author">{{$author->firstname}} {{$author->lastname}}</div>
                 <div>{{$book->id}}</div>
             </div>

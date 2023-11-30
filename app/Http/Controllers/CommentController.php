@@ -42,7 +42,7 @@ class CommentController extends Controller
         $newCommentaire = [
             'comment' => $request->commentaire,
             'note' => $request->note,
-            'user_id' => 5,
+            'user_id' => $user_id,
             'book_id' => $request->book_id
             
         ];

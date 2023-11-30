@@ -1,3 +1,7 @@
+<?php 
+    use Illuminate\Support\Facades\Auth;
+?>
+
 @extends('home.app')
 @section('title')
     <h1>details du livre</h1>
@@ -21,18 +25,24 @@
 
         </div>
 
-        <div class="boutonCreateur">
-            <form action="{{route('book.destroy', $book->id)}}" method="post">
-                @csrf
-                @method('delete')
-                <button type="submit">supprimer</button>
-            </form>
+        <?php if(Auth::check()){ ?>
+            <?php if(Auth::id() == $book->user_id){ ?>
+                <div class="boutonCreateur">
+                    <form action="{{route('book.destroy', $book->id)}}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button type="submit">supprimer</button>
+                    </form>
+        
+                    <form action="{{route('book.edit', $book->id)}}" method="get">
+                        @csrf
+                        <button type="submit">modifier</button>
+                    </form>
+                </div>
+            <?php } ?>
+        <?php } ?>
 
-            <form action="{{route('book.edit', $book->id)}}" method="get">
-                @csrf
-                <button type="submit">modifier</button>
-            </form>
-        </div>
+
 
         
     </div>

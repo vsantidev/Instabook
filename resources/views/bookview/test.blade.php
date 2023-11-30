@@ -8,8 +8,10 @@
 </head>
 <body>
     <h1>test</h1>
-    @foreach ($ary as $item)
-        {{$item}}
+    @foreach ($array as $item)
+        {{$item ->title}}
+       
     @endforeach
+    {{$array}}
 </body>
 </html>

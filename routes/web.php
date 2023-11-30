@@ -5,6 +5,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\SearchbarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
@@ -45,3 +46,4 @@ Route::resource('/comment', CommentController::class);
 Route::resource('/author', AuthorController::class);
 Route::resource('/tag' ,TagController::class);
 Route::resource('/genre', GenreController::class);
+Route::resource('/search', SearchbarController::class);

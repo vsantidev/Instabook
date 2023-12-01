@@ -19,11 +19,14 @@
     // color: black;
     border: none;
 }
-
-$red : #86213d;
-$orange: #ff5733; 
+$sand : #cdad86;
+$dark-sand: #D0C0B1;
+$light-sea: #7AB3C6;
+$dark-sea: #1289A1;
+// $red : #86213d;
+// $orange: #ff5733; 
 $dark: #272727;
-$light-color: #666;
+$light-color: #838793;
 $light-bg: #eee;
 $border: .2em solid $dark;
 
@@ -124,7 +127,7 @@ section {
         margin-left: 2rem;
 
         &:hover{
-            color: $red;
+            color: $dark-sea;
         }
     }
 
@@ -160,7 +163,7 @@ section {
             cursor: pointer;
 
             &:hover{
-                color: $red;
+                color: $dark-sea;
             }
         }
     }
@@ -192,7 +195,7 @@ section {
                padding: 1rem 0;
         
                &:hover {
-                color: $red;
+                color: $dark-sea;
 
                     i {
                         padding-right: 2rem;
@@ -200,7 +203,7 @@ section {
                }
 
                i {
-                    color: $red;
+                    color: $dark-sea;
                     padding-right: .5rem;
                }
             }
@@ -233,7 +236,7 @@ section {
         border-top: $border;
 
         span {
-            color: $red;
+            color: $dark-sea;
         }
     }
 }
@@ -250,7 +253,7 @@ section {
     position: relative; 
 
     .slide {
-        background-image: url('../../storage/app/public/images/fond-ecran-livre-intitule-mot-livre-dessus_865967-52304.avif');
+        background-image: url(https://besthqwallpapers.com/Uploads/23-1-2020/119564/summer-travel-seascape-mood-concept-book-on-the-beach-pebbles.jpg);
         background-size: cover !important;
         background-position: center;
         display: flex;
@@ -282,31 +285,6 @@ section {
             }
         }
     }
-
-    // #next-slide,
-    // #prev-slide {
-    //     position: absolute;
-    //     bottom: 2rem;
-    //     right: 2rem;
-    //     color: $light-bg;
-    //     font-size: 4rem;
-    //     border: $border;
-    //     border-radius: .5rem;
-    //     height: 6rem;
-    //     width: 6rem;
-    //     line-height: 5.5rem;
-    //     text-align: center;
-    //     justify-content: center;
-    //     background-color: $light-bg;
-
-    //     &:hover {
-    //     cursor: pointer;
-    //     }
-    // }
-
-    // #prev-slide {
-    //     right: 9rem;
-    // }
 }
 
 
@@ -467,122 +445,7 @@ section {
 //     color: #9b9b9b;
 // }
 
-// @media screen and (min-width: 900px){
-//     .nav {
-//         padding: 0 1.5em;
-//     }
-//     .dropdown > div,
-//     .mega-menu > .menu__link {
-//         padding: 1.5em 1em;
-//     }
 
-//     .mega-menu {
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//     }
-
-//     .btn-menu {
-//         display: none;
-//     }
-
-//     .menu {
-//         background-color: #2d3033;
-//         position: absolute;
-//         top: 4.3em;
-//         left: 0;
-//         padding: 0;
-//         overflow-y: hidden;
-//         transition: 0.4s;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         flex-direction: column;
-//     }
-
-//     .menu > li:last-child a {
-//         padding-bottom: 1em;
-//     }
-
-//     .menu li a,
-//     .menu > div {
-//         padding: 0.5em 2em;
-//     }
-
-//     .dropdown {
-//         position: relative;
-//     }
-
-//     .dropdown > div,
-//     .mega-menu > .menu__link {
-//         transition: 0.3s;
-//     }
-
-//     .dropdown a {
-//         display: block;
-//     }
-
-//     // === Hide Menu ===
-//     .menu {
-//         height: 0;
-//     }
-
-//     .menu >  .menu__link {
-//         padding: 0.5em 0;
-//     }
-
-//     .dropdown:hover, .menu__link:hover {
-//         background-color: #2d3033;
-//     }
-
-//     .dropdown:hover .menu {
-//         height: auto;
-//         padding: 0.5em 0 0 0;
-//         overflow-y: visible;
-//     }
-// }
-
-
-// @media screen and (max-width: 900px) {
-//     .nav {
-//         padding: 1em 1.5em;
-//     }
-
-//     .menu-container {
-//         background-color: #212225;
-//         position: absolute;
-//         top: 4.4em;
-//         left: 0;
-//         width: 100%;
-//         overflow-y: hidden;
-//         transition: 0.3s;
-//     }
-
-//     // width
-//     .mega-menu::-webkit-scrollbar {
-//         width: 8px;
-//     }
-
-//     // track
-//     .mega-menu::-webkit-scrollbar-track {
-//         background: #f1f1f1 ;
-//     }
-
-//     // handle
-//     .mega-menu::-webkit-scrollbar-thumb {
-//         background: #888;
-
-//     }
-
-//     // handle on hover
-//     .mega-menu::-webkit-scrollbar-thumb:hover {
-//         background: #555;
-//     }
-
-//     .mega-menu {
-//         padding: 0 1em 1em;
-//     }
-// }
 
 
 

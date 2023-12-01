@@ -77,20 +77,17 @@
     <section class="home">
         <div class="slide active">
             <div class="contentStore">
-                <span>“Dans la lecture solitaire, l'homme qui se cherche lui-même a quelque chance de se rencontrer.”</span>
-                <h3>Georges Duhamel</h3>
-            </div>
-        </div>
-
-        <div class="slide">
-            <div class="contentStore">
                 <span>“La vraie lecture commence quand on ne lit plus seulement pour se distraire et se fuir, mais pour se trouver.”</span>
                 <h3>Jean Guéhenno</h3>
             </div>
         </div>
 
-        {{-- <div id="next-slide" onclick="next()" class="fa-solid fa-angle-right"></div>
-        <div id="prev-slide" onclick="prev()" class="fa-solid fa-angle-left"></div> --}}
+        {{-- <div class="slide">
+            <div class="contentStore">
+                <span>“La vraie lecture commence quand on ne lit plus seulement pour se distraire et se fuir, mais pour se trouver.”</span>
+                <h3>Jean Guéhenno</h3>
+            </div>
+        </div> --}}
     </section>
 
         {{-- <nav class="nav">
@@ -202,7 +199,13 @@
         </nav> --}}
 
  
-
+        <section>
+            @yield('title')
+        </section>
+    
+        <section>
+            @yield('content')
+        </section>
 
 
     {{-- section footer start --}}
@@ -271,12 +274,6 @@
     {{-- </footer> --}}
     {{-- section footer end --}}
 
-    <section>
-        @yield('title')
-    </section>
 
-    <section>
-        @yield('content')
-    </section>
 </body>
 </html>

@@ -12,7 +12,7 @@
         <div class="bookDetailsContainer">
           <div class="image">
             {{-- <img class="image" src="{{$book->image}}"/> --}}
-            <img src="{{ asset('storage/images/'.$book->image) }}" alt="" title="">   
+            <img src="{{ asset('storage/image/'.$book->image) }}" alt="" title="">   
           </div>
             <div class="bookData">
                 <div class="title">title : {{$book->title}}</div>

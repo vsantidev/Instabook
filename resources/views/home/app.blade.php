@@ -59,7 +59,28 @@
             </form>
 
         </section>
-        
+    </header>
+    {{-- section header end --}}
+
+    {{-- section vitrine home --}}
+    <section class="home">
+        <div class="slide active">
+            <div class="contentStore">
+                <span>“Dans la lecture solitaire, l'homme qui se cherche lui-même a quelque chance de se rencontrer.”</span>
+                <h3>Georges Duhamel</h3>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="contentStore">
+                <span>“La vraie lecture commence quand on ne lit plus seulement pour se distraire et se fuir, mais pour se trouver.”</span>
+                <h3>Jean Guéhenno</h3>
+            </div>
+        </div>
+
+        {{-- <div id="next-slide" onclick="next()" class="fa-solid fa-angle-right"></div>
+        <div id="prev-slide" onclick="prev()" class="fa-solid fa-angle-left"></div> --}}
+    </section>
 
         {{-- <nav class="nav">
             <a class="nav__brand" href="{{route('book.index')}}">Instabook</a>
@@ -169,19 +190,61 @@
 
         </nav> --}}
 
-    </header>
+ 
 
-    <section>
-        @yield('title')
-    </section>
 
-    <section>
-        @yield('content')
-    </section>
 
-    <footer>
-        <div class="footer">
-            <div class="adresse">
+    {{-- section footer start --}}
+    {{-- <footer> --}}
+        <section class="footer">
+            <div class="box-container">
+
+                <div class="box">
+                    <h3>Liens rapides</h3>
+                    <a href="#"><i class="fa-solid fa-caret-down"></i>Home</a>
+                    <a href="#"><i class="fa-solid fa-caret-down"></i>À propos</a>
+                    {{-- <a href="#"><i class="fa-solid fa-caret-down"></i>Contact</a> --}}
+                    <a href="#"><i class="fa-solid fa-caret-down"></i>Connexion</a>
+                    <a href="#"><i class="fa-solid fa-caret-down"></i>Inscription</a>
+                    <a href="#"><i class="fa-solid fa-caret-down"></i>Termes d'utilisation</a>
+                    <a href="#"><i class="fa-solid fa-caret-down"></i>Politique de confidentialité</a>
+                    {{-- <a href="#"><i class="fa-solid fa-caret-down"></i>Carte</a> --}}
+                </div>
+
+                <div class="box">
+                    <h3>Informations</h3>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i>Bocal Academy</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i>26 Boulevard Carabacel</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i>06000 Nice</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i>04 93 62 44 58</a>
+                    {{-- <a href="#"><i class="fa-solid fa-caret-right"></i>Carte</a> --}}
+                    <a href="https://maps.app.goo.gl/t14GyQ3uu78UErnf8" target="_blank"><i class="fa-solid fa-caret-right"></i>Carte</a>
+                </div>
+
+                <div class="box">
+                    <h3>Suivez-nous</h3>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i>Twitter</a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i>Facebook</a>
+                    <a href="#"><i class="fa-brands fa-github"></i>Github</a>
+                    <a href="#"><i class="fa-brands fa-pinterest"></i>Pinterest</a>
+
+                </div>
+
+                <div class="box">
+                    <h3>Newsletter</h3>
+                    <p>Abonnez-vous aux dernières news</p>
+                    <form action="">
+                        <input type="email" placeholder="Entrez votre email" id="">
+                        <input type="submit" value="subscribe" class="button">
+                    </form>
+                </div>
+               
+            </div>
+            <div class="credits"> Créé par <span>Sergio</span> & <span>Véronique</span> | Formation développeur web & mobile | &copy; Bocal Academy 2023 </div>
+
+            {{-- <div class="adresse">
                 <p>26 Boulevard Carabacel</p>
             </div>
             <div class="numero">
@@ -192,8 +255,17 @@
             </div>
             <div class="copyright">
                 &copy; InstaBook 2023
-            </div>
-        </div>
-    </footer>
+            </div> --}}
+        </section>
+    {{-- </footer> --}}
+    {{-- section footer end --}}
+
+    <section>
+        @yield('title')
+    </section>
+
+    <section>
+        @yield('content')
+    </section>
 </body>
 </html>

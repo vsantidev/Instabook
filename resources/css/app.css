@@ -10,37 +10,71 @@
 .bg-white{
     background-color: unset;
 }
-.card{
-    box-sizing: border-box;
-    position: absolute;
+.cardLogin{
     top: 0;
     left: 0;
+}
+.cardRegister{
+    top: 0;
+    right: 0;
+}
+.cardLogin,
+.cardRegister{
+    box-sizing: border-box;
+    position: absolute;
     height: 100%;
     width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-width: initial!important;
     background-color: rgba(0, 0, 0, 0.25);
 }
 .mt-6{
     margin-top: 0;
 }
-/* .sm\:max-w-md{
-    max-width: initial;
-} */
-.formLogin{
-    height: 100%;
+.titleBreeze{
+    height: 20%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titleBreeze h1{
+    color: white;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+.formLogin,
+.formRegister{
+    height: 55%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 .formLogin label,
 .formLogin a,
-.formLogin span {
+.formLogin span,
+.formRegister label,
+.formRegister a,
+.formRegister label {
     color: white;
 }
 
-.formLogin input {
+.formLogin input,
+.formRegister input {
     border-radius: 0;
     border: none;
     border-bottom: 2px solid white;
     background-color: initial;  
+}
+.formLogin input:focus,
+.formRegister input:focus{
+    color: white;
+}
+.inscriptionLink{
+    color: white;
+    text-transform: uppercase;
 }

@@ -40,7 +40,7 @@ class SearchbarController extends Controller
 
 
                 $book = Book::select("books.*", "genres.name as genre_name", "tags.name as tag_name" , "authors.*")
-                ->where("title","%$request->search%")
+                ->where("title",$request->search)
                 ->leftJoin('genres', 'books.genre_id','genres.id')
                 ->leftJoin('select_tags', 'books.id', 'select_tags.book_id')
                 ->leftJoin('tags', 'select_tags.tag_id', 'tags.id')
@@ -49,7 +49,7 @@ class SearchbarController extends Controller
 
 
             } elseif ($request->option == 'genre') {
-                $genre = Genre::all()->where('name',"%$request->search%");
+                $genre = Genre::all()->where('name', $request->search);
 
 
                     foreach ($genre as $key => $value) {
@@ -64,7 +64,7 @@ class SearchbarController extends Controller
                     }
 
             } elseif ($request->option == 'auteurs') {
-                $author = Author::where('lastname',"%$request->search%")
+                $author = Author::where('lastname',$request->search)
                     ->orWhere('firstname', $request->option)
                     ->get();
                     dd($author);
@@ -87,7 +87,7 @@ class SearchbarController extends Controller
 
                 if($genre->count() == 0){
                     
-                    $author = Author::where('lastname',"%$request->search%")
+                    $author = Author::where('lastname',$request->search)
                         ->orWhere('firstname', $request->option)
                         ->get();
 
@@ -105,7 +105,7 @@ class SearchbarController extends Controller
                     if ($author->count() == 0 ) {
 
                         $book = Book::select("books.*", "genres.name as genre_name", "tags.name as tag_name" , "authors.*")
-                        ->where("title","%$request->search%")
+                        ->where("title", $request->search)
                         ->leftJoin('genres', 'books.genre_id','genres.id')
                         ->leftJoin('select_tags', 'books.id', 'select_tags.book_id')
                         ->leftJoin('tags', 'select_tags.tag_id', 'tags.id')

@@ -4,21 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/css/style.scss', 'resources/js/app.js'])
-    <script src="https://kit.fontawesome.com/f9d009cb2a.js" crossorigin="anonymous"></script>
     <title>Instabook</title>
-    {{-- <link rel="stylesheet" href="../../css/app.css"> --}}
+
+    {{-- font awesome script --}}
+    <script src="https://kit.fontawesome.com/f9d009cb2a.js" crossorigin="anonymous"></script>
+
+    {{-- custom css file link + vite + js --}}
+    @vite(['resources/css/style.scss', 'resources/js/app.js'])
+
 </head>
 <body>
+{{-- header section starts --}}
     <header>
-        <nav class="nav">
+        <section class="header">
+            <a class="brand" href="{{route('book.index')}}">Instabook</a>
+
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{{route('book.index')}}">Home</a></li>
+                    <li><a href="{{route('book.index')}}">Librairie +</a>
+                        <ul>
+                            <li><a href="">BD</a></li>
+                            <li><a href="">Biographies</a></li>
+                            <li><a href="">Fantastique</a></li>
+                        </ul>
+                    </li>    
+                    <li><a href="{{route('book.index')}}">Inscription</a></li>
+                    <li><a href="{{route('book.index')}}">Recherche</a></li>
+                    <li><a href="{{route('book.index')}}">Mon compte +</a>
+                        <ul>
+                            <li><a href="{{route('profile.edit')}}">Profil</a></li>
+                            <li><a href="{{route('book.create')}}">Création de livre</a></li>
+                            <li><form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <x-dropdown-link :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                    {{ __('Déconnexion') }}
+                                </x-dropdown-link>
+                            </form></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+    
+            <div class="icons">
+                <div id="menu-btn" class="fa-solid fa-bars"></div>
+                <div id="search-btn" class="fa-solid fa-magnifying-glass"></div>
+            </div>
+
+            <form action="" class="search-form">
+                <input type="search" name="" placeholder="Recherche ici..." id="search-box">
+                <label for="search-box" class="fa-solid fa-magnifying-glass"></label>
+            </form>
+
+        </section>
+        
+
+        {{-- <nav class="nav">
             <a class="nav__brand" href="{{route('book.index')}}">Instabook</a>
             <div class="menu-container">
                 <ul class="mega-menu">
                     <li class="dropdown">
                         <div>
                             <a href="{{route('book.index')}}">
-                            
                             <span>Librairie</span> </a>
                             <span><i class="fa-solid fa-caret-down"></i></span>
                         </div>
@@ -76,9 +125,9 @@
                         </a>
                     </li>
                     <li class="menu__link"> 
-                        {{-- <a href="{{route('profile')}}">
+                        <a href="{{route('profile')}}">
                             Mon profil
-                        </a> --}}
+                        </a>
                     </li>
                     <li class="dropdown">
                         <div>
@@ -118,7 +167,7 @@
                 </button>
             </div>
 
-        </nav>
+        </nav> --}}
 
     </header>
 

@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* test sergio */
+.bg-gray-100{
+    background: rgb(88,24,69);
+    background: linear-gradient(150deg, rgba(88,24,69,1) 18%, rgba(199,0,57,1) 50%, rgba(255,195,15,1) 100%);
+}
+.bg-white{
+    background-color: unset;
+}
+.card{
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 40%;
+    max-width: initial!important;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+.mt-6{
+    margin-top: 0;
+}
+/* .sm\:max-w-md{
+    max-width: initial;
+} */
+.formLogin{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.formLogin label,
+.formLogin a,
+.formLogin span {
+    color: white;
+}
+
+.formLogin input {
+    border-radius: 0;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: initial;  
+}

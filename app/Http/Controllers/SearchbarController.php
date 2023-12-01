@@ -67,7 +67,7 @@ class SearchbarController extends Controller
                 $author = Author::where('lastname',"%$request->search%")
                     ->orWhere('firstname', $request->option)
                     ->get();
-
+                    dd($author);
                     foreach ($author as $key => $value) {
 
                         $book = Book::select("books.*", "genres.name as genre_name", "tags.name as tag_name" , "authors.*")
@@ -77,7 +77,9 @@ class SearchbarController extends Controller
                         ->leftJoin('tags', 'select_tags.tag_id', 'tags.id')
                         ->leftJoin('authors', 'books.author_id', 'authors.id')
                         ->get();
+                        
                     }
+                    
             }      
         } else {
 

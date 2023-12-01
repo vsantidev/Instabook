@@ -53,8 +53,17 @@
                 <div id="search-btn" class="fa-solid fa-magnifying-glass"></div>
             </div>
 
-            <form action="" class="search-form">
-                <input type="search" name="" placeholder="Recherche ici..." id="search-box">
+            <form action="{{route('search.store')}}" class="search-form" method="post">
+                @csrf
+                <input type="search" name="search" placeholder="Recherche ici..." id="search-box">
+                <select name="option">
+                    <option value="0">-- option --</option>
+                    <option value="titre">titre</option>
+                    <option value="genre">genres</option>
+                    <option value="auteurs">auteurs</option>
+                </select>
+                <button type="submit">rechercher</button>
+
                 <label for="search-box" class="fa-solid fa-magnifying-glass"></label>
             </form>
 

@@ -15,12 +15,13 @@
             <img src="{{ asset('storage/images/'.$book->image) }}" alt="" title="">   
           </div>
             <div class="bookData">
-                <div class="title">{{$book->title}}</div>
-                <div class="synopsis">{{$book->synopsis}}</div>
-                <div class="genre">{{$genre->name}}</div>
+                <div class="title">title : {{$book->title}}</div>
+                <div class="synopsis">synopsis : {{$book->synopsis}}</div>
+                <div class="genre">genre : {{$genre->name}}</div>
                 {{-- <div class="tag">{{$tag->name}}</div> --}}
-                <div class="author">{{$author->firstname}} {{$author->lastname}}</div>
+                <div class="author">auteur : {{$author->firstname}} {{$author->lastname}}</div>
                 <div>{{$book->id}}</div>
+                <div class="moyenne">note : {{$moyenne}} / 5</div>
             </div>
 
         </div>
@@ -56,13 +57,17 @@
                 @endforeach
             </div>
         </div>
-        <div class="newCommentaire">
-            <form action="{{route('comment.store')}}" method="post">
-                @csrf
-                <textarea name="commentaire" cols="30" rows="10"></textarea>
-                <input type="number" name="note"  placeholder="votre note sur 5" min="0" max="5">
-                <button type="submit" name="book_id" value="{{$book->id}}">valider</button>
-            </form>
-        </div>
+
+        <?php if(Auth::check()){ ?>
+            <div class="newCommentaire">
+                <form action="{{route('comment.store')}}" method="post">
+                    @csrf
+                    <textarea name="commentaire" cols="30" rows="10"></textarea>
+                    <input type="number" name="note"  placeholder="votre note sur 5" min="0" max="5">
+                    <button type="submit" name="book_id" value="{{$book->id}}">valider</button>
+                </form>
+            </div>
+        <?php } ?>
+
     </div>
 @endsection

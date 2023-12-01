@@ -17,9 +17,7 @@ class SearchbarController extends Controller
      */
     public function index()
     {
-        $cou= 5;
-        /* dd($cou); */
-        return view('bookview.testSearch');
+        //
     }
 
     /**

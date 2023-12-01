@@ -43,7 +43,7 @@ class SearchbarController extends Controller
                 ->where("title","%$request->search%")
                 ->leftJoin('genres', 'books.genre_id','genres.id')
                 ->leftJoin('select_tags', 'books.id', 'select_tags.book_id')
-                ->leftJoin('tags', 'select_select_tags.tag_id', 'tags.id')
+                ->leftJoin('tags', 'select_tags.tag_id', 'tags.id')
                 ->leftJoin('authors', 'books.author_id', 'authors.id')
                 ->get();
 

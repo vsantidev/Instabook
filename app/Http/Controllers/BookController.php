@@ -110,7 +110,7 @@ class BookController extends Controller
         if($numbersComment != 0){
             $resultnote = $note / $numbersComment;
         } else {
-            $resultnote = "aucun note";
+            $resultnote = "aucune note";
         }
         
 

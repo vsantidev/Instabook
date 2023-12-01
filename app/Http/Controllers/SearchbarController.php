@@ -103,7 +103,7 @@ class SearchbarController extends Controller
                     if ($author->count() == 0 ) {
 
                         $book = Book::select("books.*", "genres.name as genre_name", "tags.name as tag_name" , "authors.*")
-                        ->where("title",$request->search)
+                        ->where("title","%$request->search%")
                         ->leftJoin('genres', 'books.genre_id','genres.id')
                         ->leftJoin('select_tags', 'books.id', 'select_tags.book_id')
                         ->leftJoin('tags', 'select_tags.tag_id', 'tags.id')

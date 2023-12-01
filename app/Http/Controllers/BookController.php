@@ -100,13 +100,29 @@ class BookController extends Controller
         $genre = Genre::findOrFail($book->genre_id);
         $author = Author::findOrFail($book->author_id);
         $comment = Book::findOrFail($book->id)->comments;
+       
+        $note = 0;
+        foreach($comment as $key){
+            $note += $key->note;
+        }
+       
+        $numbersComment = $comment->count();
+        if($numbersComment != 0){
+            $resultnote = $note / $numbersComment;
+        } else {
+            $resultnote = "aucun note";
+        }
+        
+
+        /* dd($resultnote); */
         
         return view('bookview.show')->with([
             "book" => $book,
             "author" => $author,
             /* "tag" => $tag, */
             "genre" => $genre,
-            "comment" => $comment
+            "comment" => $comment,
+            "moyenne" => $resultnote
         ]);
 
     }

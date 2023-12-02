@@ -22,16 +22,15 @@
             <nav class="navbar">
                 <ul>
                     <li><a href="{{route('book.index')}}">Home</a></li>
-                    <li><a href="{{route('book.index')}}">Librairie +</a>
+                    <li><a href="#">Librairie +</a>
                         <ul>
-                            <li><a href="">BD</a></li>
+                            <li><a href="{{route('genre.show', 1)}}">Bande Dessinée</a></li>
                             <li><a href="">Biographies</a></li>
                             <li><a href="">Fantastique</a></li>
                         </ul>
                     </li>    
                     <li><a href="{{route('book.index')}}">Inscription</a></li>
-                    <li><a href="{{route('book.index')}}">Recherche</a></li>
-                    <li><a href="{{route('book.index')}}">Mon compte +</a>
+                    <li><a href="#">Mon compte +</a>
                         <ul>
                             <li><a href="{{route('profile.edit')}}">Profil</a></li>
                             <li><a href="{{route('book.create')}}">Création de livre</a></li>
@@ -71,9 +70,9 @@
                 <button type="submit">rechercher</button> --}}
         </section>
     </header>
-    {{-- section header end --}}
+    {{-- SECTION HEADER END --}}
 
-    {{-- section vitrine home --}}
+    {{-- SECTION VITRINE START --}}
     <section class="home">
         <div class="slide active">
             <div class="contentStore">
@@ -81,14 +80,8 @@
                 <h3>Jean Guéhenno</h3>
             </div>
         </div>
-
-        {{-- <div class="slide">
-            <div class="contentStore">
-                <span>“La vraie lecture commence quand on ne lit plus seulement pour se distraire et se fuir, mais pour se trouver.”</span>
-                <h3>Jean Guéhenno</h3>
-            </div>
-        </div> --}}
     </section>
+    {{-- SECTION VITRINE END --}}
 
         {{-- <nav class="nav">
             <a class="nav__brand" href="{{route('book.index')}}">Instabook</a>

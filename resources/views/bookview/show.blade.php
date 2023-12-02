@@ -3,71 +3,72 @@
 ?>
 
 @extends('home.app')
-@section('title')
-    <h1>details du livre</h1>
-@endsection
 
 @section('content')
-    <div class="bookDetails">
-        <div class="bookDetailsContainer">
-          <div class="image">
-            {{-- <img class="image" src="{{$book->image}}"/> --}}
-            <img src="{{ asset('storage/image/'.$book->image) }}" alt="" title="">   
-          </div>
-            <div class="bookData">
-                <div class="title">title : {{$book->title}}</div>
-                <div class="synopsis">synopsis : {{$book->synopsis}}</div>
-                <div class="genre">genre : {{$genre->name}}</div>
-                {{-- <div class="tag">{{$tag->name}}</div> --}}
-                <div class="author">auteur : {{$author->firstname}} {{$author->lastname}}</div>
-                <div>{{$book->id}}</div>
-                <div class="moyenne">note : {{$moyenne}} / 5</div>
+<section class="details">
+    <h1>details du livre</h1>
+    <div class="box-container">
+        <div class="bookDetails">
+            <div class="bookDetailsContainer">
+              <div class="image">
+                {{-- <img class="image" src="{{$book->image}}"/> --}}
+                <img src="{{ asset('storage/image/'.$book->image) }}" alt="" title="">   
+              </div>
+                <div class="bookData">
+                    <div class="title">title : {{$book->title}}</div>
+                    <div class="synopsis">synopsis : {{$book->synopsis}}</div>
+                    <div class="genre">genre : {{$genre->name}}</div>
+                    {{-- <div class="tag">{{$tag->name}}</div> --}}
+                    <div class="author">auteur : {{$author->firstname}} {{$author->lastname}}</div>
+                    <div>{{$book->id}}</div>
+                    <div class="moyenne">note : {{$moyenne}} / 5</div>
+                </div>
+    
             </div>
+    
+            <?php if(Auth::check()){ ?>
+                <?php if(Auth::id() == $book->user_id){ ?>
+                    <div class="boutonCreateur">
+                        <form action="{{route('book.destroy', $book->id)}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit">supprimer</button>
+                        </form>
+            
+                        <form action="{{route('book.edit', $book->id)}}" method="get">
+                            @csrf
+                            <button type="submit">modifier</button>
+                        </form>
+                    </div>
+                <?php } ?>
+            <?php } ?>
 
         </div>
-
-        <?php if(Auth::check()){ ?>
-            <?php if(Auth::id() == $book->user_id){ ?>
-                <div class="boutonCreateur">
-                    <form action="{{route('book.destroy', $book->id)}}" method="post">
+    
+        <div class="commentaire">
+            <div class="allCommentaire">
+                <div class="avis">
+                    @foreach ($comment as $item)
+                        <p>{{$item->comment}}</p>
+                        <p>note : {{$item->note}}/5</p>
+                    @endforeach
+                </div>
+            </div>
+    
+            <?php if(Auth::check()){ ?>
+                <div class="newCommentaire">
+                    <form action="{{route('comment.store')}}" method="post">
                         @csrf
-                        @method('delete')
-                        <button type="submit">supprimer</button>
-                    </form>
-        
-                    <form action="{{route('book.edit', $book->id)}}" method="get">
-                        @csrf
-                        <button type="submit">modifier</button>
+                        <textarea name="commentaire" cols="30" rows="10"></textarea>
+                        <input type="number" name="note"  placeholder="votre note sur 5" min="0" max="5">
+                        <button type="submit" name="book_id" value="{{$book->id}}">valider</button>
                     </form>
                 </div>
             <?php } ?>
-        <?php } ?>
-
-
-
-        
-    </div>
-
-    <div class="commentaire">
-        <div class="allCommentaire">
-            <div class="avis">
-                @foreach ($comment as $item)
-                    <p>{{$item->comment}}</p>
-                    <p>note : {{$item->note}}/5</p>
-                @endforeach
-            </div>
+    
         </div>
-
-        <?php if(Auth::check()){ ?>
-            <div class="newCommentaire">
-                <form action="{{route('comment.store')}}" method="post">
-                    @csrf
-                    <textarea name="commentaire" cols="30" rows="10"></textarea>
-                    <input type="number" name="note"  placeholder="votre note sur 5" min="0" max="5">
-                    <button type="submit" name="book_id" value="{{$book->id}}">valider</button>
-                </form>
-            </div>
-        <?php } ?>
-
     </div>
+    
+</section>
+
 @endsection

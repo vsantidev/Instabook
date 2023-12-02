@@ -58,7 +58,7 @@
                 <div class="content">
                     <div class="title-book">
                         <h3>{{$book->title}}</h3>
-                        <p>{{$book->author_id}}</p>
+                        <p>{{$book->lastname}} {{$book->firstname}}</p>
                     </div>
                     {{-- DANS LE FUTUR - AFFICHAGE NOTATION AVEC LES ETOILES --}}
                     {{-- <div class="stars">
@@ -68,7 +68,7 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star-half-stroke"></i>
                     </div> --}}
-                    <div class="genre">{{$book->genre_id}}</div>
+                    <div class="genre">{{$book->genre_name}}</div>
 
                     <a href="{{route('book.show' , $book->id)}}" class="button">Détails</a>
                     <div class="icons">

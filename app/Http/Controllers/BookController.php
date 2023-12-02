@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Facades\DB;
+
 class BookController extends Controller
 {
 
@@ -20,8 +22,12 @@ class BookController extends Controller
      */
     public function index()
     {
-        $array = Book::all();
-
+        $array = DB::table('books')
+            ->select('books.*', "genres.name as genre_name" ,"authors.id as id_author" ,"authors.lastname as lastname","authors.firstname as firstname")
+            ->leftJoin('genres' , 'books.genre_id', 'genres.id')
+            ->leftJoin('authors', 'books.author_id' , 'authors.id')
+            ->get();
+        /* dd($array); */
         return view('bookview.index')->with([
             'array' => $array
         ]);
@@ -94,13 +100,18 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-       /*  dd($book); */
-/*         $tag = Tag::findOrFail($book->tag_id);
-         */
-        $genre = Genre::findOrFail($book->genre_id);
-        $author = Author::findOrFail($book->author_id);
-        $comment = Book::findOrFail($book->id)->comments;
-       
+        /* dd($book); */
+
+        $comment = DB::table('comments')
+            ->where('book_id', $book->id)
+            ->get();
+
+        $array = DB::table('books')
+            ->where('books.id', $book->id)
+            ->leftJoin('authors', 'books.author_id', 'authors.id')
+            ->leftJoin('genres', 'books.genre_id', 'genres.id')
+            ->get();
+
         $note = 0;
         foreach($comment as $key){
             $note += $key->note;
@@ -114,13 +125,14 @@ class BookController extends Controller
         }
         
 
-        /* dd($resultnote); */
+        /* dd($comment); */
         
         return view('bookview.show')->with([
             "book" => $book,
-            "author" => $author,
+           /*  "author" => $author, */
             /* "tag" => $tag, */
-            "genre" => $genre,
+           /*  "genre" => $genre, */
+           "array" => $array,
             "comment" => $comment,
             "moyenne" => $resultnote
         ]);

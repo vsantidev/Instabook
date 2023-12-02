@@ -10,19 +10,23 @@
     <div class="box-container">
         <div class="bookDetails">
             <div class="bookDetailsContainer">
-              <div class="image">
-                {{-- <img class="image" src="{{$book->image}}"/> --}}
-                <img src="{{ asset('storage/image/'.$book->image) }}" alt="" title="">   
-              </div>
-                <div class="bookData">
-                    <div class="title">title : {{$book->title}}</div>
-                    <div class="synopsis">synopsis : {{$book->synopsis}}</div>
-                    <div class="genre">genre : {{$genre->name}}</div>
-                    {{-- <div class="tag">{{$tag->name}}</div> --}}
-                    <div class="author">auteur : {{$author->firstname}} {{$author->lastname}}</div>
-                    <div>{{$book->id}}</div>
-                    <div class="moyenne">note : {{$moyenne}} / 5</div>
-                </div>
+
+                @foreach ($array as $item)
+                    <div class="image">
+                    {{-- <img class="image" src="{{$book->image}}"/> --}}
+                    <img src="{{ asset('storage/image/'.$book->image) }}" alt="" title="">   
+                    </div>
+                    <div class="bookData">
+                        <div class="title">title : {{$item->title}}</div>
+                        <div class="synopsis">synopsis : {{$item->synopsis}}</div>
+                        <div class="genre">genre : {{$item->name}}</div>
+                        {{-- <div class="tag">{{$tag->name}}</div> --}}
+                        <div class="author">auteur : {{$item->lastname}} {{$item->firstname}}</div>
+                        <div>{{$item->id}}</div>
+                        <div class="moyenne">note : {{$moyenne}} / 5</div>
+                    </div>
+                @endforeach
+
     
             </div>
     

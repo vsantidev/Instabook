@@ -39,23 +39,45 @@
                 <a href="{{route('tag.show', 14)}}">nature</a>
             </div>
         </div>
-    
-        <div class="containerBook">
+    </div>
+
+    {{-- SECTION BLOGS STARTS --}}
+    <section class="blogs">
+        <div class="box-container">
             @foreach ($array as $key => $book)
-                <div class="cardBook">
+            <div class="box">
+                <div class="image">
                     <a href="{{route('book.show' , $book->id)}}">
-                        <img src="{{ asset('storage/images/'.$book->image) }}" alt="" title="">
+                        <img src="{{ asset('storage/image/'.$book->image) }}" alt="" title="">
                         {{-- <div class="id">{{$book->id}}</div> --}}
-                        <br>
-                        <div class="titel">{{$book->title}}</div>
-                        <div class="synopsis">{{$book->synopsis}}</div>
-                        
-                        <div class="genre">{{$book->genre}}</div>
                     </a>
                 </div>
-            @endforeach
-        </div>
-    </div>
+                <div class="content">
+                    <div class="title-book">
+                        <h3>{{$book->title}}</h3>
+                        <p>{{$book->lastname}} {{$book->firstname}}</p>
+                    </div>
+                    {{-- DANS LE FUTUR - AFFICHAGE NOTATION AVEC LES ETOILES --}}
+                    {{-- <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div> --}}
+                    <div class="genre">{{$book->genre_name}}</div>
+
+                    <a href="{{route('book.show' , $book->id)}}" class="button">Détails</a>
+                    <div class="icons">
+                        <i class="fa-regular fa-clock"> Paru en {{$book->annee}}</i>
+                        <i class="fa-solid fa-user"> by admin</i>
+                    </div>
+                </div>
+            </div>
+            @endforeach          
+        </div>   
+    </section>
+    {{-- SECTION BLOGS END --}}
 
 
 @endsection

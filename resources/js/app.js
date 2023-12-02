@@ -43,3 +43,27 @@ function prev() {
     index = (index - 1 + slides.length) % slides.length;
     slides[index].classList.add('active');
 }
+
+// si link nav burger
+
+let activeNav = document.querySelector('.navbar.active');
+let burgerClick = document.querySelector('.burgerClick');
+
+/* burgerClick.style.backgroundColor = "red"; */
+
+let stateslink = null;
+
+burgerClick.addEventListener("click", (e) => {
+
+    console.log('cououc');
+    if(stateslink == null){
+        burgerClick.classList.add('active');
+        stateslink = true;
+    } else if(stateslink == false){
+        burgerClick.classList.add('active');
+        stateslink = true;
+    } else {
+        burgerClick.classList.remove('active');
+        stateslink = false;
+    }
+})

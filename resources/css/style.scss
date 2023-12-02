@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap');
 
-
-// -------------> variable css <-------------
-// $breakpoint: 900px;
-// $nav-height: 100px;
-// $link-hover-color: #f8b500;
-// $content-width: 100%;
-// $content-heigth: 100vh;
-
 *{
     font-family: 'Montserrat', sans-serif;
     padding: 0;
@@ -16,19 +8,17 @@
     text-decoration: none;
     text-transform: capitalize;
     transition: all .2s linear;
-    // color: black;
     border: none;
 }
+
 $sand : #cdad86;
 $dark-sand: #D0C0B1;
 $light-sea: #7AB3C6;
 $dark-sea: #1289A1;
-// $red : #86213d;
-// $orange: #ff5733; 
 $dark: #272727;
 $light-color: #838793;
 $light-bg: #eee;
-$border: .2em solid $dark;
+$border: .1rem solid $dark;
 
 @mixin grid($val) {
     display: grid;
@@ -62,6 +52,7 @@ section {
     }
 }
 
+// ===================> HEADER + NAVBAR <===================
 .header {
     position: sticky;
     top: 0;
@@ -78,6 +69,7 @@ section {
         font-size: 2.5rem;
         font-weight: bolder;
         margin-right: auto;
+        color: $dark;
     }
 
     .navbar {
@@ -175,7 +167,7 @@ section {
 }
 
 
-// --------------> footer <------------------ 
+// ===================> FOOTER <===================
 .footer {
     .box-container {
         @include grid(25rem);
@@ -248,13 +240,16 @@ section {
     }
 }
 
+// ===================> VITRINE <===================
+
 .home {
     padding: 0;
     position: relative; 
 
     .slide {
         background-image: url(https://besthqwallpapers.com/Uploads/23-1-2020/119564/summer-travel-seascape-mood-concept-book-on-the-beach-pebbles.jpg);
-        background-size: cover !important;
+        background-size: 160rem 55rem !important;
+        background-repeat: no-repeat;
         background-position: center;
         display: flex;
         flex-direction: column;
@@ -270,15 +265,17 @@ section {
         .contentStore {
 
             span {
-                color: white;
+                color: $dark;
                 display: block;
                 font-size: 2rem;
                 animation: fadeIn .4s linear .2s backwards;
+                margin-top: 4rem;
             }
 
             h3 {
-                color: $dark;
+                color: $dark-sea;
                 text-transform: uppercase;
+                margin-top: 1rem;
                 padding: 1rem 0;
                 font-size: 3rem;
                 animation: fadeIn .4s linear .4s backwards;
@@ -286,12 +283,108 @@ section {
         }
     }
 }
+// ===================> SECTION BLOGS BOOK <===================
+
+.filter .box-container {
+
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+
+    @include grid (25rem);
+
+}
 
 
+// ===================> SECTION BLOGS BOOK <===================
+
+.blogs .box-container {
+    @include grid(32rem);
+
+    .box {
+        border-radius: .5rem;
+        text-align: center;
+        overflow: hidden;
+        border: $border;
+
+        &:hover .image .icons {
+            transform: translateY(0) ;
+        }
+        
+        .image {
+            overflow: hidden;
+            height: 25rem;
+            width: 100%;
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+                background: $dark-sand;
+            }
+        }
+
+        .content {
+            padding: 2rem;
+
+            h3 {
+                font-size: 2rem;
+                color: $dark;
+                line-height: 2rem;
+            }
+
+            p {
+                font-size: 1.4rem;
+                line-height: 2.5rem;
+                color: $light-color;
+                padding: 1rem 0;
+                text-transform: uppercase;
+            }
+
+            .stars {
+                padding: 1rem 0;
+
+                i {
+                    font-size: 1.4rem;
+                    color: $dark-sea;
+                }
+            }
+
+            .genre {
+                font-size: 2.2rem;
+                color: $dark;
+                text-transform: uppercase;
+                
+            }
+
+            a {
+                font-size: 1.4rem;
+                color: $light-color;
+
+                &:hover {
+                    color: $dark-sea;
+                }
+            }
+            .icons{
+                border-top: $border;
+                padding-top: 2rem;
+                margin-top: 2rem;
+                display: flex;
+                justify-content: space-between;
+
+                i {
+                    letter-spacing: .2rem;
+                    padding-right: .5rem;
+                    color: $light-color;
+                }
+            }
+        }
+
+    }
+}
 
 
-// --------------> media queries navbar <------------------
-
+// ===================> MEDIA QUERIES <===================
+// ------> Navbar <------
 @media screen and (max-width:1200px){
     html {
         font-size: 55%;
@@ -353,6 +446,9 @@ section {
         padding: 0 2rem;
     }
 }
+
+// 
+
 
 // body {
 

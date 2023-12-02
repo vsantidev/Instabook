@@ -2,10 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+/*     outline: none;
+    text-decoration: none;
+    transition: all .2s linear;
+    border: none; */
+}
+
+
 /* test sergio */
 .bg-gray-100{
-    background: rgb(88,24,69);
-    background: linear-gradient(150deg, rgba(88,24,69,1) 18%, rgba(199,0,57,1) 50%, rgba(255,195,15,1) 100%);
+    background: #1289A1;
+    background: linear-gradient(150deg, #1289A1 18%, #7AB3C6 100%);
 }
 .bg-white{
     background-color: unset;
@@ -59,22 +70,276 @@
 .formLogin span,
 .formRegister label,
 .formRegister a,
-.formRegister label {
+.formRegister label,
+.resetPassword form label{
     color: white;
 }
 
 .formLogin input,
-.formRegister input {
+.formRegister input,
+.cardProfil input,
+.resetPassword form input {
     border-radius: 0;
     border: none;
     border-bottom: 2px solid white;
     background-color: initial;  
 }
 .formLogin input:focus,
-.formRegister input:focus{
+.formRegister input:focus,
+.cardProfil input:focus,
+.resetPassword form input:focus {
     color: white;
 }
 .inscriptionLink{
     color: white;
     text-transform: uppercase;
 }
+/*  */
+.cardProfil,
+.resetPassword{
+    background-color: rgba(0, 0, 0, 0.25);
+}
+.cardProfil header h2,
+.formProfil label,
+.resetPassword .mb-4{
+    color: white;
+}
+.cardProfil header p{
+    color: #D0C0B1;
+}
+
+/* logo */
+.shadow-md{
+    background-color: rgba(255, 255, 255, 0) !important;
+    box-shadow: none;
+}
+
+/* navbar profil */
+
+.header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: white;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    display: flex;
+    align-items: center;
+    padding: 0 9%;
+    height: 50px;
+}
+.brand {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    margin-right: auto;
+    font-size: 30px;
+}
+.navbar{
+    height: 50px;
+}
+.navbar ul{
+    height: 100%;
+    list-style: none;
+}
+.navbar ul li{
+    height: 100%;
+    position: relative;
+    float: left;
+    width: 20%;
+}
+
+.navbar ul li:hover ul {
+    display: block;
+}
+
+.navbar ul li a{
+    font-size: 1rem;
+    color: #838793;
+    padding: 0 2rem 0 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar ul li a:hover{
+    background: #eee;
+}
+.navbar ul li ul {
+    position: absolute;
+    left: 0;
+    width: 20rem;
+    background-color: white;
+    display: none;
+    height: 100%;
+
+}
+
+.navbar ul li ul li{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.icons div,
+.icons a{
+    font-size: 2.5rem;
+    color: #272727;
+    cursor: pointer;
+    margin-left: 2rem;
+
+}
+.icons div:hover,
+.icons a:hover{
+    color: #1289A1;
+
+}
+
+.search-form {
+    position: absolute;
+    top: 99%;
+    left: 0;
+    right: 0;
+    border-top: .2em solid #272727;
+    background: white;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+.search-form.active{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.search-form input {
+    width: 100%;
+    height: 100%;
+    padding-right: 1rem;
+    font-size: 1.7rem;
+    color: #838793;
+    text-transform: none;
+}
+.search-form label {
+    color: #272727;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.search-form label:hover{
+    color: #1289A1;
+}
+#menu-btn {
+    display: none;
+}
+
+@media (max-width:900px) {
+    .cardLogin,
+    .cardRegister{
+        width: 100%;
+    }
+}
+@media (max-width:839px) {
+    .navbar ul li a{
+        font-size: 13px;
+    }
+}
+@media (max-width:375px) {
+    .navbar ul {
+        display: none;
+    }
+    .brand{
+        display: flex;
+        justify-content: center;
+        margin-right: 0;
+        width: 100%;
+    }
+
+}
+@media (max-width:414px) {
+    .navbar ul {
+        display: none;
+    }
+    .brand{
+        display: flex;
+        justify-content: center;
+        margin-right: 0;
+        width: 100%;
+    }
+
+}
+@media (max-width:839px) {
+    .navbar ul {
+        display: none;
+    }
+    .icons{
+        height: 100%;
+        width: 50px;
+    }
+    #menu-btn{
+        /* background-color: #1289A1; */
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #menu-btn span{
+        background-color: black;
+        height: 5px;
+        width: 80%;
+        border-radius: 10px;
+    }
+    .navbar{
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background: white;
+
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+    }
+    .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        height: 100vh;
+    }
+    .navbar ul li{
+        width: 100%;
+    }
+    .navbar ul li ul{
+        position: relative;
+        width: 100%;
+    }
+
+    .navbar ul li ul li a{
+        padding-left: 4rem;
+    }
+    .navbar.active ul{
+        display: flex;
+        flex-direction: column;
+        height: 95%;
+    }
+    .navbar.active ul li a{
+        font-size: 40px;
+        padding: 0;
+    }
+    .navbar.active ul li ul{
+        display: none;
+    }
+    .navbar.active ul li.active ul{
+        position: absolute;
+        top: 100%;
+        display: flex;
+    }
+    .navbar.active ul li ul li{
+        background-color: #1289A1;
+        z-index: 4;
+    }
+    .navbar.active ul li ul li a{
+        color: #eee;
+    }
+}
+

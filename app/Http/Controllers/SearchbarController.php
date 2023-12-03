@@ -49,7 +49,7 @@ class SearchbarController extends Controller
 
 
             } elseif ($request->option == 'genre') {
-                $genre = Genre::all()->where('name', $request->search);
+                $genre = Genre::where('name', $request->search)->get();
 
 
                     foreach ($genre as $key => $value) {
@@ -67,7 +67,7 @@ class SearchbarController extends Controller
                 $author = Author::where('lastname',$request->search)
                     ->orWhere('firstname', $request->option)
                     ->get();
-                    dd($author);
+                    /* dd($author); */
                     foreach ($author as $key => $value) {
 
                         $book = Book::select("books.*", "genres.name as genre_name", "tags.name as tag_name" , "authors.*")
@@ -101,7 +101,7 @@ class SearchbarController extends Controller
                             ->leftJoin('authors', 'books.author_id', 'authors.id')
                             ->get();
                         }
-
+                        
                     if ($author->count() == 0 ) {
 
                         $book = Book::select("books.*", "genres.name as genre_name", "tags.name as tag_name" , "authors.*")
@@ -128,6 +128,13 @@ class SearchbarController extends Controller
 
                 }  
         }
+
+        if(!isset($book) || $book->count() == 0){
+            $book =[
+                "erreur" => 1
+            ];
+        } 
+
         /* dd($book); */
         return view('bookview.showFilter')->with([
             "array" => $book

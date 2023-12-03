@@ -5,6 +5,12 @@
 @extends('home.app')
 
 @section('content')
+{{-- SECTION HEADING START--}}
+<section class="heading">
+    <h1>Détails du livre</h1>
+</section>
+{{-- SECTION HEADING END--}}
+
 <section class="details">
     <h1>details du livre</h1>
     <div class="box-container">

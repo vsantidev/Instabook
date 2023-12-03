@@ -1,8 +1,12 @@
 @extends('home.app')
-@section('title')
-    <h1>modification</h1>
-@endsection
+
 @section('content')
+{{-- SECTION HEADING START--}}
+<section class="heading">
+    <h1>Modification de votre livre</h1>
+</section>
+{{-- SECTION HEADING END--}}
+
 <section class="edition">
     <div class="box-container">
         @foreach ($array as $item)

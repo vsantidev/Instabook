@@ -2,12 +2,6 @@
 
 @section('content')
 
-{{-- SECTION HEADING START--}}
-{{-- <section class="heading">
-    <h1>Création d'un livre</h1>
-</section> --}}
-{{-- SECTION HEADING END--}}
-
 {{-- erreur présente --}}
 @if ($errors->any())
     @foreach ($errors->all() as $error)
@@ -18,7 +12,7 @@
 
 {{-- SECTION FORMULAIRE START--}}
 <section class="creation">
-    <h1 class="title">Création d'un livre</h1>
+    <h1 class="title">Création du livre</h1>
     <div class="row">
 
         <form action='{{route('book.store')}}' method='post' class="content" enctype="multipart/form-data">

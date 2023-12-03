@@ -18,7 +18,7 @@
 
 </head>
 <body>
-{{-- header section starts --}}
+    {{-- SECTION HEADER START --}}
     <header>
         <section class="header">
             <a class="brand" href="{{route('book.index')}}">Instabook</a>
@@ -81,11 +81,6 @@
                 </select>
                 <button for="search-box" class="fa-solid fa-magnifying-glass"></button>
             </form>
-            {{-- <form action="{{route('search.store')}}" class="search-form" method="post">
-                @csrf
-                <input type="search" name="search" placeholder="Recherche ici..." id="search-box">
-
-                <button type="submit">rechercher</button> --}}
         </section>
     </header>
     {{-- SECTION HEADER END --}}
@@ -101,126 +96,12 @@
     </section>
     {{-- SECTION VITRINE END --}}
 
-        {{-- <nav class="nav">
-            <a class="nav__brand" href="{{route('book.index')}}">Instabook</a>
-            <div class="menu-container">
-                <ul class="mega-menu">
-                    <li class="dropdown">
-                        <div>
-                            <a href="{{route('book.index')}}">
-                            <span>Librairie</span> </a>
-                            <span><i class="fa-solid fa-caret-down"></i></span>
-                        </div>
-                        <ul class="menu">
-                            <li class="menu__link">
-                                <a href="">BD</a>
-                            </li>
-                            <li class="menu__link">
-                                <a href="">Biographies</a>
-                            </li>
-                            <li class="menu__link">
-                                <a href="">Fantastique</a>
-                            </li>
-                            <li class="menu__link">
-                                <a href="">Jeunesse</a>
-                            </li>
-                            <li class="menu__link">
-                                <a href="">Littérature</a>
-                            </li>
-                            <li class="menu__link">
-                                <a href="">Manga</a>
-                            </li>
-                            <li class="menu__link">
-                                <a href="">Narratif</a>
-                            </li>
-                            <li class="menu__link">
-                                <a href="">Poétique</a>
-                            </li>
-                            <li class="menu__link">
-                                <a href="">Policier</a>
-                            </li>
-                            <li class="menu__link">
-                                <a href="">Romance</a>
-                            </li>
-                            <li class="menu__link">
-                                <a href="">Sciences Fiction</a>
-                            </li>
-                            <li class="menu__link">
-                                <a href="" >Théâtral</a>
-                            </li>
-                            <li class="menu__link">
-                                <a href="" >Thriller</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu__link">
-                        <a href="{{route('search.index')}}">
-                            Recherche
-                        </a>
-                    </li>
-
-                    <li class="menu__link"> 
-                        <a href="{{route('dashboard')}}">
-                            À propos
-                        </a>
-                    </li>
-                    <li class="menu__link"> 
-                        <a href="{{route('profile')}}">
-                            Mon profil
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <div>
-                            
-                            <span>Mon compte</span> </a>
-                            <span><i class="fa-solid fa-caret-down"></i></span>
-                        </div>
-                        <ul class="menu">
-                            <li class="menu__link">
-                                <a href="{{route('profile.edit')}}">
-                                    Profil
-                                </a>
-                            </li>
-                            <li class="menu__link">
-                                <a href="{{route('book.create')}}">Création de livre</a>
-                            </li>
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-    
-                                <x-dropdown-link :href="route('logout')"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                    {{ __('Log Out') }}
-                                </x-dropdown-link>
-                            </form>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="buttons">
-                <button class="btn btn__log"><a href="{{route('dashboard')}}">
-                    Connexion
-                </a></button>
-                <button class="btn btn__log btn__log--color">Inscription</button>
-                <button class="btn btn__menu">
-                    <span><i class="fa-solid fa-bars"></i></span>
-                </button>
-            </div>
-
-        </nav> --}}
-
- 
-        <section>
-            @yield('title')
-        </section>
-    
         <section>
             @yield('content')
         </section>
 
 
-    {{-- section footer start --}}
-    {{-- <footer> --}}
+    {{-- SECTION FOOTER START --}}
         <section class="footer">
             <div class="box-container">
                 <div class="box">
@@ -241,7 +122,6 @@
                     <a href="#"><i class="fa-solid fa-caret-right"></i>26 Boulevard Carabacel</a>
                     <a href="#"><i class="fa-solid fa-caret-right"></i>06000 Nice</a>
                     <a href="#"><i class="fa-solid fa-caret-right"></i>04 93 62 44 58</a>
-                    {{-- <a href="#"><i class="fa-solid fa-caret-right"></i>Carte</a> --}}
                     <a href="https://maps.app.goo.gl/t14GyQ3uu78UErnf8" target="_blank"><i class="fa-solid fa-caret-down"></i>Carte</a>
                 </div>
 
@@ -253,7 +133,6 @@
                     <a href="#"><i class="fa-brands fa-facebook"></i>Facebook</a>
                     <a href="#"><i class="fa-brands fa-github"></i>Github</a>
                     <a href="#"><i class="fa-brands fa-pinterest"></i>Pinterest</a>
-
                 </div>
 
                 <div class="box">
@@ -268,9 +147,6 @@
             </div>
             <div class="credits"> Créé par <span>Sergio</span> & <span>Véronique</span> | Formation développeur web & mobile | &copy; Bocal Academy 2023 </div>
         </section>
-    {{-- </footer> --}}
-    {{-- section footer end --}}
-
-
+    {{-- SECTION FOOTER END --}}
 </body>
 </html>

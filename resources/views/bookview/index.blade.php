@@ -3,13 +3,13 @@
 @section('content')
     <div class="filter">
         <div class="box-container">
-            <div class="box genre">
+            <div class="box">
                 <h3>-- genre de Littérature --</h3>    
                 @foreach ($array as $item)
                     <a href="{{route('genre.show', $item->id)}}">| {{$item->name}}</a>
                 @endforeach
             </div>
-            <div class="tag">
+            <div class="box">
                 <h3>-- Tag --</h3>
                 @foreach ($array as $item)
                     <a href="{{route('tag.show', $item->id)}}">|{{$item->name}}</a>

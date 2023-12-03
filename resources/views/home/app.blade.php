@@ -29,8 +29,18 @@
                     <li><a href="#">Librairie +</a>
                         <ul>
                             <li><a href="{{route('genre.show', 1)}}">Bande Dessinée</a></li>
-                            <li><a href="">Biographies</a></li>
-                            <li><a href="">Fantastique</a></li>
+                            <li><a href="{{route('genre.show', 11)}}">Biographie</a></li>
+                            <li><a href="{{route('genre.show', 8)}}">Fantastique</a></li>
+                            <li><a href="{{route('genre.show', 10)}}">Jeunesse</a></li>
+                            <li><a href="{{route('genre.show', 12)}}">Littérature</a></li>
+                            <li><a href="{{route('genre.show', 2)}}">Manga</a></li>
+                            <li><a href="{{route('genre.show', 5)}}">Narratif</a></li>
+                            <li><a href="{{route('genre.show', 6)}}">Poétique</a></li>
+                            <li><a href="{{route('genre.show', 3)}}">Policier</a></li>
+                            <li><a href="{{route('genre.show', 13)}}">Romance</a></li>
+                            <li><a href="{{route('genre.show', 4)}}">Sciences Fiction</a></li>
+                            <li><a href="{{route('genre.show', 7)}}">Théâtral</a></li>
+                            <li><a href="{{route('genre.show', 9)}}">Thriller</a></li>
                         </ul>
                     </li>    
                     <li><a href="{{route('book.index')}}">Inscription</a></li>
@@ -63,7 +73,7 @@
             <form action="{{route('search.store')}}" class="search-form" method="post">
                 @csrf
                 <input type="search" name="search" placeholder="Recherche ici..." id="search-box">
-                <select name="option">
+                <select name="option" class="option">
                     <option value="0">-- option --</option>
                     <option value="titre">titre</option>
                     <option value="genre">genres</option>
@@ -215,11 +225,11 @@
             <div class="box-container">
                 <div class="box">
                     <h3>Liens rapides</h3>
-                    <a href="#"><i class="fa-solid fa-caret-down"></i>Home</a>
+                    <a href="{{route('book.index')}}"><i class="fa-solid fa-caret-down"></i>Home</a>
                     <a href="#"><i class="fa-solid fa-caret-down"></i>À propos</a>
                     {{-- <a href="#"><i class="fa-solid fa-caret-down"></i>Contact</a> --}}
-                    <a href="#"><i class="fa-solid fa-caret-down"></i>Connexion</a>
-                    <a href="#"><i class="fa-solid fa-caret-down"></i>Inscription</a>
+                    <a href="{{ route('login') }}"><i class="fa-solid fa-caret-down"></i>Connexion</a>
+                    <a href="{{ route('register') }}"><i class="fa-solid fa-caret-down"></i>Inscription</a>
                     <a href="#"><i class="fa-solid fa-caret-down"></i>Termes d'utilisation</a>
                     <a href="#"><i class="fa-solid fa-caret-down"></i>Politique de confidentialité</a>
                     {{-- <a href="#"><i class="fa-solid fa-caret-down"></i>Carte</a> --}}
@@ -232,7 +242,7 @@
                     <a href="#"><i class="fa-solid fa-caret-right"></i>06000 Nice</a>
                     <a href="#"><i class="fa-solid fa-caret-right"></i>04 93 62 44 58</a>
                     {{-- <a href="#"><i class="fa-solid fa-caret-right"></i>Carte</a> --}}
-                    <a href="https://maps.app.goo.gl/t14GyQ3uu78UErnf8" target="_blank"><i class="fa-solid fa-caret-right"></i>Carte</a>
+                    <a href="https://maps.app.goo.gl/t14GyQ3uu78UErnf8" target="_blank"><i class="fa-solid fa-caret-down"></i>Carte</a>
                 </div>
 
                 <div class="box">

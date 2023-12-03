@@ -1,3 +1,7 @@
+<?php 
+    use Illuminate\Support\Facades\Auth;
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -39,7 +43,11 @@
                                 <x-dropdown-link :href="route('logout')"
                                         onclick="event.preventDefault();
                                                     this.closest('form').submit();">
-                                    {{ __('Déconnexion') }}
+                                    <?php if(Auth::check()){?>
+                                        {{ __('Déconnexion') }}
+                                    <?php } else { ?>
+                                        {{ 'Connexion' }}
+                                    <?php } ?>
                                 </x-dropdown-link>
                             </form></li>
                         </ul>

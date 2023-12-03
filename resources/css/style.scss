@@ -36,6 +36,17 @@ section {
     padding: 2rem 9%;
 }
 
+.heading {
+    background: $dark-sea;
+    text-align: center;
+
+    h1 {
+        font-size: 2rem;
+        color: $light-bg;
+        text-transform: uppercase;
+    }
+}
+
 .title {
     font-size: 3rem;
     color: $dark;
@@ -91,6 +102,7 @@ section {
 
                 &:hover ul {
                     display: block;
+                    z-index: 2;
                 }
 
                 a {
@@ -110,9 +122,11 @@ section {
                     width: 20rem;
                     background-color: white;
                     display: none;
+                    overflow-y: scroll;
 
                     li {
                         width: 100%;
+                        line-height: .1rem;
                     }
                 }
             }
@@ -165,6 +179,16 @@ section {
             &:hover{
                 color: $dark-sea;
             }
+        }
+
+        .option {
+            background: $light-color;
+            padding: 1rem 3rem;
+            word-spacing: 1rem;
+            margin-right: 1rem;
+            color: $light-bg;
+            border-radius: .5rem;
+            
         }
     }
 }
@@ -297,8 +321,22 @@ section {
 
     margin-bottom: 2rem;
     font-size: 1.5rem;
+    line-height: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: $border;
 
     @include grid (25rem);
+
+    a {
+        // text-decoration: none;
+        color: $dark;
+        word-spacing: .5rem;
+
+        &:hover {
+            color: $dark-sea;
+        }
+
+    }
 
 }
 
@@ -451,7 +489,9 @@ section {
     
 }
 
+// ===================> SECTION SHOW <===================
 
+// ---> Section Show = section filter
 
 // ===================> MEDIA QUERIES <===================
 // ------> Navbar <------
@@ -464,9 +504,6 @@ section {
         padding: 0 2rem;
     }
 
-    section {
-        padding: 9rem;
-    }
 }
 
 

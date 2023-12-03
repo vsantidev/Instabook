@@ -52,6 +52,7 @@
 
                         <div class="box">
                             <div class="image">
+                                {{-- {{dd($array)}} --}}
                                 <a href="{{route('book.show' , $book->id)}}">
                                     <img src="{{ asset('storage/image/'.$book->image) }}" alt="" title="">
                                     {{-- <div class="id">{{$book->id}}</div> --}}

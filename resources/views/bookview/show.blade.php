@@ -22,14 +22,18 @@
                         <div class="genre">genre : {{$item->name}}</div>
                         {{-- <div class="tag">{{$tag->name}}</div> --}}
                         <div class="author">auteur : {{$item->lastname}} {{$item->firstname}}</div>
-                        <div>{{$item->id}}</div>
+                        <div>tags:
+                            @foreach ($arrayTag as $tags)
+                                <div>{{$tags->name}}</div>
+                            @endforeach
+                        </div>
                         <div class="moyenne">note : {{$moyenne}} / 5</div>
                     </div>
                 @endforeach
 
     
             </div>
-    
+            {{-- {{dd($array)}} --}}
             <?php if(Auth::check()){ ?>
                 <?php if(Auth::id() == $book->user_id){ ?>
                     <div class="boutonCreateur">

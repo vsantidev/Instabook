@@ -5,16 +5,20 @@
 @section('content')
 <section class="edition">
     <div class="box-container">
-        <div class="oldValue">
-            <div class="">titre : {{$book->title}}</div>
-            <div class="">synopsis : {{$book->synopsis}}</div>
-            <div class="">image : {{$book->image}}</div>
-            <div class="">nom : {{$author->lastname}}</div>
-            <div class="">prenom : {{$author->firstname}}</div>
-            <div class="">genre : {{$genre->name}}</div>
-            <div class="">tag : {{$tag->name}}</div>
-        </div>
-    
+        @foreach ($array as $item)
+            {{-- {{dd($item->title)}} --}}
+            <div class="oldValue">
+                <div class="">titre : {{$item->title}}</div>
+                <div class="">synopsis : {{$item->synopsis}}</div>
+                <div class="">image : {{$item->image}}</div>
+                <div class="">nom : {{$item->lastname}}</div>
+                <div class="">prenom : {{$item->firstname}}</div>
+                <div class="">genre : {{$item->name}}</div>
+                {{-- <div class="">tag : {{$tag->name}}</div> --}}
+            </div>
+        
+        @endforeach
+
         <form action="{{route('book.update', $book->id)}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('put')

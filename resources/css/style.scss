@@ -315,6 +315,7 @@ section {
         }
     }
 }
+
 // ===================> SECTION FILTER BOOK <===================
 
 .filter .box-container {
@@ -328,16 +329,13 @@ section {
     @include grid (25rem);
 
     a {
-        // text-decoration: none;
         color: $dark;
         word-spacing: .5rem;
 
         &:hover {
             color: $dark-sea;
         }
-
     }
-
 }
 
 
@@ -410,6 +408,7 @@ section {
                     color: $dark-sea;
                 }
             }
+
             .icons{
                 border-top: $border;
                 padding-top: 2rem;
@@ -424,14 +423,13 @@ section {
                 }
             }
         }
-
     }
 }
 
-// ===================> SECTION CREATE <===================
+// ===================> SECTION CREATE + EDITION <===================
 
-.creation {
-    // @include grid(32rem);
+.creation, .edition {
+
     .row {
         display: flex;
         flex-wrap: wrap;
@@ -466,11 +464,12 @@ section {
             }
 
             .option {
-                padding: 1rem 0;
-                padding-left: 4rem;
-                background: #7AB3C6;
-                margin: 1rem 0;
-                border-radius: .5rem;
+                background: $light-color;
+                padding: 1rem 3rem;
+                word-spacing: 1rem;
+                margin-right: 1rem;
+                color: $light-bg;
+                border-radius: .5rem;     
             }
 
             p {
@@ -485,8 +484,59 @@ section {
                 padding: .5rem 0;
             }
         }
+
+        .oldValue {
+            flex: 1 1 32rem;
+            width: 50%;
+            border-radius: .5rem;
+            border: $border;
+            margin-top: 1rem;
+            padding: 2rem 2rem;
+            height: 40rem;
+
+            .title {
+                font-size: 2rem;
+                padding-top: 2rem;
+            }
+
+            label {
+                color: $dark-sea;
+                text-transform: uppercase;
+                font-weight: 600;
+                margin-top: 5rem;
+            }
+
+            .box, textaera {
+                width: 100%;
+                font-size: 1.6rem;
+                border-bottom: $border;
+                margin-bottom: 2.6rem;
+                text-transform: none;
+                padding: 1.5rem 0;
+            }
+        }
+    }   
+}
+
+// ===================> SECTION EDIT <===================
+
+.détails {
+    display: flex;
+
+    .image {
+        overflow: hidden;
+        height: 25rem;
+        width: 100%;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            background: $dark-sand;
+        }
     }
-    
+
+
 }
 
 // ===================> SECTION SHOW <===================

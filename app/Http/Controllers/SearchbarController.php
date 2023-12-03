@@ -10,6 +10,8 @@ use App\Models\SelectTags;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 class SearchbarController extends Controller
 {
     /**
@@ -135,9 +137,23 @@ class SearchbarController extends Controller
             ];
         } 
 
-        /* dd($book); */
+        $tag = DB::table('tags')
+            ->get();
+        $genre = DB::table('genres')
+            ->get();
+        $annee = DB::table('books')
+            ->select('books.annee','books.id')
+            ->get();
+        $author = DB::table('authors')
+            ->get();
+
+        /* dd($author); */
         return view('bookview.showFilter')->with([
-            "array" => $book
+            "array" => $book,
+            "tag" => $tag,
+            "genre" => $genre,
+            "annee" => $annee,
+            "author" => $author
         ]);
 
     }

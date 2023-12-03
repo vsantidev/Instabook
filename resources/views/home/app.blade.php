@@ -43,25 +43,27 @@
                             <li><a href="{{route('genre.show', 9)}}">Thriller</a></li>
                         </ul>
                     </li>    
-                    <li><a href="{{route('book.index')}}">Inscription</a></li>
-                    <li><a href="#">Mon compte +</a>
-                        <ul>
-                            <li><a href="{{route('profile.edit')}}">Profil</a></li>
-                            <li><a href="{{route('book.create')}}">Création de livre</a></li>
-                            <li><form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <x-dropdown-link :href="route('logout')"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                    <?php if(Auth::check()){?>
-                                        {{ __('Déconnexion') }}
-                                    <?php } else { ?>
-                                        {{ 'Connexion' }}
-                                    <?php } ?>
-                                </x-dropdown-link>
-                            </form></li>
-                        </ul>
-                    </li>
+                    <li><a href="{{route('register')}}">Inscription</a></li>
+
+                    <?php if(Auth::check()){?>
+                        <li><a href="#">Mon compte +</a>
+                            <ul>
+                                <li><a href="{{route('profile.edit')}}">Profil</a></li>
+                                <li><a href="{{route('book.create')}}">Création de livre</a></li>
+                                <li><form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <x-dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                            {{ __('Déconnexion') }}
+                                    </x-dropdown-link>
+                                </form></li>
+                            </ul>
+                        </li>
+                    <?php } else { ?>
+                        <li><a href="{{route('login')}}">{{ 'Connexion' }}</a>
+                    <?php } ?>
+
                 </ul>
             </nav>
     

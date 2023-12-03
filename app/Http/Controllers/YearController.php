@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\author;
-use Illuminate\Http\Request;
+use App\Models\Book;
+use App\Models\Author;
+use App\Models\Genre;
+use App\Models\Tag;
+use App\Models\Comment;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class AuthorController extends Controller
+class YearController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,15 +40,16 @@ class AuthorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(author $author)
+    public function show(Request $id)
     {
-        $array = DB::table('authors')
-            ->select("books.*", "genres.name as genre_name", "authors.*")
-            ->where('authors.id', $author->id)
-            ->leftJoin('books', 'books.author_id', 'authors.id')
-            ->leftJoin('genres', 'books.genre_id', 'genres.id')
-            ->get();
-        
+        $array = DB::table('books')
+        ->select("books.*", "genres.name as genre_name", "authors.*")
+        ->where('books.annee', $id->year)
+        ->leftJoin('genres', 'books.genre_id', 'genres.id')
+        ->leftJoin('authors', 'books.author_id', 'authors.id')
+        ->get();
+
+    
         $tag = DB::table('tags')
             ->get();
         $genre = DB::table('genres')
@@ -63,12 +68,14 @@ class AuthorController extends Controller
             "annee" => $annee,
             "author" => $author
         ]);
+    
+        
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(author $author)
+    public function edit(string $id)
     {
         //
     }
@@ -76,7 +83,7 @@ class AuthorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, author $author)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -84,7 +91,7 @@ class AuthorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(author $author)
+    public function destroy(string $id)
     {
         //
     }

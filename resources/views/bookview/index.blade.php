@@ -4,38 +4,31 @@
     <div class="filter">
         <div class="box-container">
             {{-- <div class="box"> --}}
-                <div class="genre">
+                <div class="box genre">
                     <h3>-- genre de Littérature --</h3>    
-                    <a href="{{route('genre.show', 1)}}">Bande dessinée</a> 
-                    <a href="{{route('genre.show', 2)}}">Manga</a>
-                    <a href="{{route('genre.show', 3)}}">Policier</a>
-                    <a href="{{route('genre.show', 4)}}">Sciences Fiction</a>
-                    <a href="{{route('genre.show', 5)}}">Narratif</a>
-                    <a href="{{route('genre.show', 6)}}">Poetique</a>
-                    <a href="{{route('genre.show', 7)}}">Theatral</a>
-                    <a href="{{route('genre.show', 8)}}">Fantastique</a>
-                    <a href="{{route('genre.show', 9)}}">Thriller</a>
-                    <a href="{{route('genre.show', 10)}}">Jeunesse</a>
-                    <a href="{{route('genre.show', 11)}}">Biographies</a>
-                    <a href="{{route('genre.show', 12)}}">Littérature</a>
-                    <a href="{{route('genre.show', 13)}}">Romance</a>
+                    @foreach ($genre as $item)
+                        <a href="{{route('genre.show', $item->id)}}">| {{$item->name}}</a>
+                    @endforeach
                 </div>
                 <div class="tag">
                     <h3>-- Tag --</h3>
-                    <a href="{{route('tag.show', 1)}}">tragedie</a>
-                    <a href="{{route('tag.show', 2)}}">tous public</a>
-                    <a href="{{route('tag.show', 3)}}">enfant</a>
-                    <a href="{{route('tag.show', 4)}}">rigolo</a>
-                    <a href="{{route('tag.show', 5)}}">burlesque</a>
-                    <a href="{{route('tag.show', 6)}}">etudes</a>
-                    <a href="{{route('tag.show', 7)}}">etonnant</a>
-                    <a href="{{route('tag.show', 8)}}">suspense</a>
-                    <a href="{{route('tag.show', 9)}}">amour</a>
-                    <a href="{{route('tag.show', 10)}}">noel</a>
-                    <a href="{{route('tag.show', 11)}}">magique</a>
-                    <a href="{{route('tag.show', 12)}}">enigmatique</a>
-                    <a href="{{route('tag.show', 13)}}">decouverte</a>
-                    <a href="{{route('tag.show', 14)}}">nature</a>
+                    @foreach ($tag as $item)
+                        <a href="{{route('tag.show', $item->id)}}">|{{$item->name}}</a>
+                    @endforeach
+                </div>                
+                <div class="box">
+                    <h3>-- année --</h3>
+                    @foreach ($annee as $item)
+                        <a href="{{route('year.show', $item->annee)}}">| {{$item->annee}}</a>
+                    @endforeach
+
+                </div>
+                <div class="box">
+                    <h3>-- author --</h3>
+
+                    @foreach ($author as $item)
+                        <a href="{{route('author.show', $item->id)}}">| {{$item->lastname}} {{$item->firstname}}</a>
+                    @endforeach
                 </div>
             {{-- </div> --}}
             

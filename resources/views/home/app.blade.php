@@ -43,7 +43,10 @@
                             <li><a href="{{route('genre.show', 9)}}">Thriller</a></li>
                         </ul>
                     </li>    
-                    <li><a href="{{route('register')}}">Inscription</a></li>
+                    <?php if(Auth::check()){?>
+                    <?php } else { ?>
+                        <li><a href="{{route('register')}}">Inscription</a></li>
+                    <?php } ?>
 
                     <?php if(Auth::check()){?>
                         <li><a href="#">Mon compte +</a>

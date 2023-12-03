@@ -14,7 +14,6 @@
     {{-- SECTION SHOW START--}}
     <section class="details">
         <div class="row">
-            {{-- <div class="bookDetails"> --}}
                 <div class="box">
                     @foreach ($array as $item)
                         <div class="image">
@@ -38,7 +37,6 @@
                 <div class="box">
                     <?php if(Auth::check()){ ?>
                         <?php if(Auth::id() == $book->user_id){ ?>
-                            {{-- <div > --}}
                                 <form action="{{route('book.destroy', $book->id)}}" method="post">
                                     @csrf
                                     @method('delete')
@@ -49,20 +47,16 @@
                                     @csrf
                                     <button type="submit" class="button">modifier</button>
                                 </form>
-                            {{-- </div> --}}
                         <?php } ?>
                     <?php } ?>
                 </div>
-            {{-- </div> --}}
         
             <div class="box-comment">
                 <div class="box-allComment">
-                    {{-- <div class="avis"> --}}
                         @foreach ($comment as $item)
                             <p>{{$item->comment}}</p>
                             <p>note : {{$item->note}}/5</p>
                         @endforeach
-                    {{-- </div> --}}
                 </div>
                 <?php if(Auth::check()){ ?>
                     <div class="newCommentaire">

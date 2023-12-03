@@ -111,6 +111,10 @@ class BookController extends Controller
             ->leftJoin('authors', 'books.author_id', 'authors.id')
             ->leftJoin('genres', 'books.genre_id', 'genres.id')
             ->get();
+        $arrayTag = DB::table('select_tags')
+            ->where('book_id', $book->id)
+            ->leftJoin('tags', 'select_tags.tag_id', 'tags.id')
+            ->get();
 
         $note = 0;
         foreach($comment as $key){
@@ -124,15 +128,11 @@ class BookController extends Controller
             $resultnote = "aucune note";
         }
         
-
-        /* dd($comment); */
         
         return view('bookview.show')->with([
             "book" => $book,
-           /*  "author" => $author, */
-            /* "tag" => $tag, */
-           /*  "genre" => $genre, */
-           "array" => $array,
+            "array" => $array,
+            "arrayTag" => $arrayTag,
             "comment" => $comment,
             "moyenne" => $resultnote
         ]);
@@ -144,16 +144,17 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        $tag = Tag::findOrFail($book->tag_id);
-        $genre = Genre::findOrFail($book->genre_id);
-        $author = Author::findOrFail($book ->author_id);
+        $array = DB::table('books')
+            ->where('books.id', $book->id)
+            ->leftJoin('genres', 'books.genre_id', 'genres.id')
+            ->leftJoin('authors', 'books.author_id', 'authors.id')
+            ->get();
         $arrayGenre = Genre::all();
         $arrayTag = Tag::all();
+
         return view('bookview.edit')->with([
             "book" => $book,
-            "author" => $author,
-            "tag" => $tag,
-            "genre" => $genre,
+            "array" => $array,
             "arrayGenre" => $arrayGenre,
             "arrayTag" => $arrayTag
         ]);

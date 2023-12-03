@@ -31,12 +31,14 @@
             <input type="file" name="image" accept="jpg">
     
             <select name="genre">
+                <option value="">-- genre --</option>
                 @foreach ($arrayGenre as $item)
                     <option value="{{$item->id}}">{{$item->name}}</option>
                 @endforeach
             </select>
     
             <select name="tag">
+                    <option value="">-- tag --</option>
                 @foreach ($arrayTag as $item)
                     <option value="{{$item->id}}">{{$item->name}}</option>
                 @endforeach

@@ -6,6 +6,8 @@ use App\Models\Genre;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 class GenreController extends Controller
 {
     /**
@@ -37,10 +39,30 @@ class GenreController extends Controller
      */
     public function show(Genre $genre)
     {
-        $array = Book::all()->where('genre_id', $genre->id);
+        $array = DB::table('genres')
+            ->select("books.*", "genres.name as genre_name", "authors.*")
+            ->where('genres.id', $genre->id)
+            ->leftJoin('books', 'books.genre_id', 'genres.id')
+            ->leftJoin('authors', 'books.author_id', 'authors.id')
+            ->get();
         
+            $tag = DB::table('tags')
+            ->get();
+        $genre = DB::table('genres')
+            ->get();
+        $annee = DB::table('books')
+            ->select('books.annee','books.id')
+            ->get();
+        $author = DB::table('authors')
+            ->get();
+
+        /* dd($author); */
         return view('bookview.showFilter')->with([
-            "array" => $array
+            "array" => $array,
+            "tag" => $tag,
+            "genre" => $genre,
+            "annee" => $annee,
+            "author" => $author
         ]);
     }
 

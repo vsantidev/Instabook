@@ -1,3 +1,4 @@
+//----------- <SECTION CSS VERONIQUE /> -----------
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap');
 
 *{
@@ -33,6 +34,13 @@ html {
 
 section {
     padding: 2rem 9%;
+}
+
+.title {
+    font-size: 3rem;
+    color: $dark;
+    margin-bottom: 1rem;
+    padding: 0 1rem ;
 }
 
 .button {
@@ -283,7 +291,7 @@ section {
         }
     }
 }
-// ===================> SECTION BLOGS BOOK <===================
+// ===================> SECTION FILTER BOOK <===================
 
 .filter .box-container {
 
@@ -381,6 +389,68 @@ section {
 
     }
 }
+
+// ===================> SECTION CREATE <===================
+
+.creation {
+    // @include grid(32rem);
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+
+        form {
+            flex: 1 1 42rem; 
+            margin: 1rem auto;
+            padding: 2rem;
+            border: $border;
+            border-radius: .5rem;
+
+            .box, textaera {
+                width: 100%;
+                font-size: 1.6rem;
+                border-bottom: $border;
+                margin-bottom: 2.6rem;
+                text-transform: none;
+                padding: 1.5rem 0;
+            }
+
+            .textaera {
+                border-bottom: $border;
+                text-transform: none;
+            }
+
+            label {
+                color: $dark-sea;
+                text-transform: uppercase;
+                font-weight: 600;
+                margin-top: 5rem;
+            }
+
+            .option {
+                padding: 1rem 0;
+                padding-left: 4rem;
+                background: #7AB3C6;
+                margin: 1rem 0;
+                border-radius: .5rem;
+            }
+
+            p {
+                text-transform: none;
+                font-size: 1.2rem;
+                font-style: italic;
+                margin-bottom: 1rem;
+            }
+
+            .file {
+                margin-top: 1rem;
+                padding: .5rem 0;
+            }
+        }
+    }
+    
+}
+
 
 
 // ===================> MEDIA QUERIES <===================

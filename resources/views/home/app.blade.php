@@ -205,7 +205,6 @@
     {{-- <footer> --}}
         <section class="footer">
             <div class="box-container">
-
                 <div class="box">
                     <h3>Liens rapides</h3>
                     <a href="#"><i class="fa-solid fa-caret-down"></i>Home</a>
@@ -250,19 +249,6 @@
                
             </div>
             <div class="credits"> Créé par <span>Sergio</span> & <span>Véronique</span> | Formation développeur web & mobile | &copy; Bocal Academy 2023 </div>
-
-            {{-- <div class="adresse">
-                <p>26 Boulevard Carabacel</p>
-            </div>
-            <div class="numero">
-                <p>04 93 62 44 58</p>
-            </div>
-            <div class="carte">
-                <a href="https://maps.app.goo.gl/t14GyQ3uu78UErnf8" target="_blank">carte</a>
-            </div>
-            <div class="copyright">
-                &copy; InstaBook 2023
-            </div> --}}
         </section>
     {{-- </footer> --}}
     {{-- section footer end --}}

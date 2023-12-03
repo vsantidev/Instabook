@@ -10,7 +10,6 @@
 {{-- SECTION SHOWFILTER START--}}
     <section class="filter">
         <div class="box-container">
-            {{-- <div class="filter"> --}}
                 <div class="box">
                     <h3>-- genre de Littérature --</h3>    
                     @foreach ($genre as $item)
@@ -37,7 +36,6 @@
                         <a href="{{route('author.show', $item->id)}}">| {{$item->lastname}} {{$item->firstname}}</a>
                     @endforeach
                 </div>
-            {{-- </div> --}}
         </div>
     </section>
     
@@ -50,7 +48,6 @@
                 <div class="image">
                     <a href="{{route('book.show' , $book->id)}}">
                         <img src="{{ asset('storage/image/'.$book->image) }}" alt="" title="">
-                        {{-- <div class="id">{{$book->id}}</div> --}}
                     </a>
                 </div>
                 <div class="content">

@@ -12,6 +12,5 @@
         {{$item }}
        
     @endforeach
-   {{--  {{$array}} --}}
 </body>
 </html>

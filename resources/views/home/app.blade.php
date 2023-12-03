@@ -22,7 +22,6 @@
     <header>
         <section class="header">
             <a class="brand" href="{{route('book.index')}}">Instabook</a>
-
             <nav class="navbar">
                 <ul>
                     <li><a href="{{route('book.index')}}">Home</a></li>
@@ -66,7 +65,6 @@
                     <?php } else { ?>
                         <li><a href="{{route('login')}}">{{ 'Connexion' }}</a>
                     <?php } ?>
-
                 </ul>
             </nav>
     

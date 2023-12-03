@@ -10,7 +10,6 @@
         <div class="titel">{{$book->title}}</div>
         <div class="synopsis">{{$book->synopsis}}</div>
         <div class="genre">{{$book->genre}}</div>
-        {{-- <div class="author">{{$author->firsname}}</div> --}}
     </div>
 
 @endsection

@@ -3,35 +3,32 @@
 @section('content')
     <div class="filter">
         <div class="box-container">
-            {{-- <div class="box"> --}}
-                <div class="box genre">
-                    <h3>-- genre de Littérature --</h3>    
-                    @foreach ($genre as $item)
-                        <a href="{{route('genre.show', $item->id)}}">| {{$item->name}}</a>
-                    @endforeach
-                </div>
-                <div class="tag">
-                    <h3>-- Tag --</h3>
-                    @foreach ($tag as $item)
-                        <a href="{{route('tag.show', $item->id)}}">|{{$item->name}}</a>
-                    @endforeach
-                </div>                
-                <div class="box">
-                    <h3>-- année --</h3>
-                    @foreach ($annee as $item)
-                        <a href="{{route('year.show', $item->annee)}}">| {{$item->annee}}</a>
-                    @endforeach
+            <div class="box genre">
+                <h3>-- genre de Littérature --</h3>    
+                @foreach ($array as $item)
+                    <a href="{{route('genre.show', $item->id)}}">| {{$item->name}}</a>
+                @endforeach
+            </div>
+            <div class="tag">
+                <h3>-- Tag --</h3>
+                @foreach ($array as $item)
+                    <a href="{{route('tag.show', $item->id)}}">|{{$item->name}}</a>
+                @endforeach
+            </div>                
+            <div class="box">
+                <h3>-- année --</h3>
+                @foreach ($array as $item)
+                    <a href="{{route('year.show', $item->annee)}}">| {{$item->annee}}</a>
+                @endforeach
 
-                </div>
-                <div class="box">
-                    <h3>-- author --</h3>
+            </div>
+            <div class="box">
+                <h3>-- author --</h3>
 
-                    @foreach ($author as $item)
-                        <a href="{{route('author.show', $item->id)}}">| {{$item->lastname}} {{$item->firstname}}</a>
-                    @endforeach
-                </div>
-            {{-- </div> --}}
-            
+                @foreach ($author as $item)
+                    <a href="{{route('author.show', $item->id)}}">| {{$item->lastname}} {{$item->firstname}}</a>
+                @endforeach
+            </div>            
         </div>
     </div>
 

@@ -27,9 +27,24 @@ class BookController extends Controller
             ->leftJoin('genres' , 'books.genre_id', 'genres.id')
             ->leftJoin('authors', 'books.author_id' , 'authors.id')
             ->get();
+
+        $tag = DB::table('tags')
+            ->get();
+        $genre = DB::table('genres')
+            ->get();
+        $annee = DB::table('books')
+            ->select('books.annee','books.id')
+            ->get();
+        $author = DB::table('authors')
+            ->get();
+
         /* dd($array); */
-        return view('bookview.index')->with([
-            'array' => $array
+        return view('bookview.showFilter')->with([
+            "array" => $array,
+            "tag" => $tag,
+            "genre" => $genre,
+            "annee" => $annee,
+            "author" => $author
         ]);
 
     }

@@ -426,7 +426,7 @@ section {
     }
 }
 
-// ===================> SECTION CREATE + EDITION <===================
+// ===================> SECTION CREATE + EDITION + EDIT <===================
 
 .creation, .edition, .details {
 
@@ -536,34 +536,12 @@ section {
     }
 }
 
-// ===================> SECTION EDIT <===================
-
-// .details {
-
-
-
-//     .image {
-//         overflow: hidden;
-//         height: 25rem;
-//         width: 100%;
-
-//         img {
-//             height: 100%;
-//             width: 100%;
-//             object-fit: contain;
-//             background: $dark-sand;
-//         }
-//     }
-
-
-// }
-
 // ===================> SECTION SHOW <===================
 
 // ---> Section Show = section filter
 
 // ===================> MEDIA QUERIES <===================
-// ------> Navbar <------
+
 @media screen and (max-width:1200px){
     html {
         font-size: 55%;

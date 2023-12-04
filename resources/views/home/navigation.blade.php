@@ -1,5 +1,6 @@
 <head>
     @vite(['resources/js/app.js'])
+    
 </head>
 <section class="header">
     <a class="brand" href="{{route('book.index')}}">Instabook</a>
@@ -9,12 +10,21 @@
             <li><a href="{{route('book.index')}}">Home</a></li>
             <li class="burgerClick"><a>Librairie +</a>
                 <ul>
-                    <li><a href="">BD</a></li>
-                    <li><a href="">Biographies</a></li>
-                    <li><a href="">Fantastique</a></li>
+                    <li><a href="{{route('genre.show', 1)}}">Bande Dessinée</a></li>
+                    <li><a href="{{route('genre.show', 11)}}">Biographie</a></li>
+                    <li><a href="{{route('genre.show', 8)}}">Fantastique</a></li>
+                    <li><a href="{{route('genre.show', 10)}}">Jeunesse</a></li>
+                    <li><a href="{{route('genre.show', 12)}}">Littérature</a></li>
+                    <li><a href="{{route('genre.show', 2)}}">Manga</a></li>
+                    <li><a href="{{route('genre.show', 5)}}">Narratif</a></li>
+                    <li><a href="{{route('genre.show', 6)}}">Poétique</a></li>
+                    <li><a href="{{route('genre.show', 3)}}">Policier</a></li>
+                    <li><a href="{{route('genre.show', 13)}}">Romance</a></li>
+                    <li><a href="{{route('genre.show', 4)}}">Sciences Fiction</a></li>
+                    <li><a href="{{route('genre.show', 7)}}">Théâtral</a></li>
+                    <li><a href="{{route('genre.show', 9)}}">Thriller</a></li>
                 </ul>
-            </li>    
-            <li><a href="{{route('book.index')}}">Inscription</a></li>
+            </li>
             <li><a href="{{route('book.index')}}">Recherche</a></li>
             <li class="burgerClick"><a href="{{route('book.index')}}">Mon compte +</a>
                 <ul>

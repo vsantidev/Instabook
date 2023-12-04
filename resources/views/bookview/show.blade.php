@@ -14,13 +14,13 @@
     {{-- SECTION SHOW START--}}
     <section class="details">
         <div class="row">
-                <div class="box">
+                <div class="box-show">
                     @foreach ($array as $item)
                         <div class="image">
                             <img src="{{ asset('storage/image/'.$book->image) }}" alt="" title=""  class="image-show">   
                         </div>
                         <div class="box">
-                            <p class="title"><span>title : </span>{{$item->title}}</p>
+                            <p class="title">{{$item->title}}</p>
                             <p class="sub-title"><span>synopsis : </span>{{$item->synopsis}}</p>
                             <p class="sub-title"><span>genre : </span>{{$item->name}}</p>
                             <p class="sub-title"><span>Autheur : </span>{{$item->lastname}} {{$item->firstname}}</p>
@@ -34,7 +34,7 @@
                     @endforeach
                 </div>
 
-                <div class="box">
+                <div class="box-btn">
                     <?php if(Auth::check()){ ?>
                         <?php if(Auth::id() == $book->user_id){ ?>
                                 <form action="{{route('book.destroy', $book->id)}}" method="post">

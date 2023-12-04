@@ -41,9 +41,16 @@
     
     {{-- SECTION SHOWFILTER END--}}
     {{-- SECTION BLOGS STARTS --}}
+    {{-- {{dd($array)}} --}}
+
     <section class="blogs">
         <div class="box-container">
             @foreach ($array as $key => $book)
+
+            <?php if($key== "erreur"){ ?>
+                <h1>erreur 404</h1>
+            <?php } else {?>
+
             <div class="box">
                 <div class="image">
                     <a href="{{route('book.show' , $book->id)}}">
@@ -72,9 +79,12 @@
                     </div>
                 </div>
             </div>
+
+            <?php } ?>
             @endforeach          
         </div>   
     </section>
+
     {{-- SECTION BLOGS END --}}
 
 @endsection

@@ -40,12 +40,13 @@ class TagController extends Controller
     public function show(Tag $tag)
     {
 
-        $array = DB::table('select_tags')
-        ->select("books.*", "genres.name as genre_name", "authors.*")
-        ->where('select_tags.tag_id', $tag->id)
-        ->leftJoin('books' , 'select_tags.book_id', 'books.id')
-        ->leftJoin('genres', 'books.genre_id', 'genres.id')
-        ->leftJoin('authors', 'authors.id', 'books.author_id')
+        $books = DB::table('tags')
+        ->select('books.*', "genres.name as genre_name" ,"authors.id as id_author" ,"authors.lastname as lastname","authors.firstname as firstname")
+        ->where('tags.id' , $tag->id)
+        ->join('select_tags', 'tags.id', 'select_tags.tag_id')
+        ->join('books', 'select_tags.book_id', 'books.id' )
+        ->join('authors' , 'books.author_id', 'authors.id')
+        ->join('genres' , 'books.genre_id', 'genres.id')
         ->get();
 
         $tag = DB::table('tags')
@@ -60,7 +61,7 @@ class TagController extends Controller
 
         /* dd($author); */
         return view('bookview.showFilter')->with([
-            "array" => $array,
+            "array" => $books,
             "tag" => $tag,
             "genre" => $genre,
             "annee" => $annee,

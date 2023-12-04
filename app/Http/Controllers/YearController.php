@@ -40,14 +40,16 @@ class YearController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $id)
+    public function show(int $book)
     {
-        $array = DB::table('books')
+        $books = Book::where("id",$book)->get();
+   
+/*         $array = DB::table('books')
         ->select("books.*", "genres.name as genre_name", "authors.*")
         ->where('books.annee', $id->year)
         ->leftJoin('genres', 'books.genre_id', 'genres.id')
         ->leftJoin('authors', 'books.author_id', 'authors.id')
-        ->get();
+        ->get(); */
 
     
         $tag = DB::table('tags')
@@ -62,7 +64,7 @@ class YearController extends Controller
 
         /* dd($author); */
         return view('bookview.showFilter')->with([
-            "array" => $array,
+            "array" => $books,
             "tag" => $tag,
             "genre" => $genre,
             "annee" => $annee,

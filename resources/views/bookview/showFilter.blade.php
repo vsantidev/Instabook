@@ -25,7 +25,7 @@
                 <div class="box">
                     <h3>-- année --</h3>
                     @foreach ($annee as $item)
-                        <a href="{{route('year.show', $item->annee)}}">| {{$item->annee}}</a>
+                        <a href="{{route('year.show', $item->id)}}">| {{$item->annee}}</a>
                     @endforeach
 
                 </div>

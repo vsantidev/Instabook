@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\author;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -38,13 +39,8 @@ class AuthorController extends Controller
      */
     public function show(author $author)
     {
-        $array = DB::table('authors')
-            ->select("books.*", "genres.name as genre_name", "authors.*")
-            ->where('authors.id', $author->id)
-            ->leftJoin('books', 'books.author_id', 'authors.id')
-            ->leftJoin('genres', 'books.genre_id', 'genres.id')
-            ->get();
-        
+        $books = Book::where("author_id", $author->id)->get();
+       
         $tag = DB::table('tags')
             ->get();
         $genre = DB::table('genres')
@@ -57,7 +53,7 @@ class AuthorController extends Controller
 
         /* dd($author); */
         return view('bookview.showFilter')->with([
-            "array" => $array,
+            "array" => $books,
             "tag" => $tag,
             "genre" => $genre,
             "annee" => $annee,
